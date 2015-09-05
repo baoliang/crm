@@ -1,0 +1,117 @@
+{% extends "base.html" %}
+{%block content%}
+
+
+<div class='ui-tipbox ui-tipbox-success <(if-not (get-in user [:is_admin]) "none")>'>
+    <div class="ui-tipbox-icon">
+        <i class="iconfont" title="设置添加领取限制">&#xF049;</i>
+    </div>
+
+    <div class="ui-tipbox-content">
+每天最多添加线索数量(0为不限制)
+        <input type="text" name="up" id="up" value='<(if (:sett-limit data) ((:sett-limit data) "up") 0)>'>
+        每天最多领取线索数量
+        <input type="text" name="down" id="down" value='<(if (:sett-limit data) ((:sett-limit data) "down") 0)>'>
+        <input type="button" value="设置" id="set_limit" class="ui-button ui-button-morange">
+    </div>
+</div>
+<br>
+<div class="ui-table-container">
+    <div class='ui-tipbox ui-tipbox-success <(if-not (:edit data) "none")>'>
+        <div class="ui-tipbox-icon">
+            <i class="iconfont" title="成功">&#xF049;</i>
+        </div>
+        <div class="ui-tipbox-content">
+            <h3 class="ui-tipbox-title">修改成功</h3>
+
+        </div>
+    </div>
+    <div class='ui-tipbox ui-tipbox-success <(if-not (:new data) "none")>'>
+        <div class="ui-tipbox-icon">
+            <i class="iconfont" title="成功">&#xF049;</i>
+        </div>
+        <div class="ui-tipbox-content">
+            <h3 class="ui-tipbox-title">添加成功</h3>
+
+        </div>
+    </div>
+    <div class='ui-tipbox ui-tipbox-success <(if-not (:del data) "none")>'>
+        <div class="ui-tipbox-icon">
+            <i class="iconfont" title="成功">&#xF049;</i>
+        </div>
+        <div class="ui-tipbox-content">
+            <h3 class="ui-tipbox-title">删除成功</h3>
+
+        </div>
+    </div>
+    <table class="ui-table"><!-- 可以在class中加入ui-table-inbox或ui-table-noborder分别适应不同的情况 -->
+        <thead>
+        <tr>
+            <th>id</th>
+            <th>学员姓名</th>
+            <th>性别</th>
+            <th>电话</th>
+            <th>QQ</th>
+            <th>微信</th>
+            <th>线索来源</th>
+
+            <th>意向状态</th>
+
+            <th>省份</th>
+
+            <th>招生老师</th>
+
+            <th>操作</th>
+
+        </tr>
+        </thead><!-- 表头可选 -->
+        <tbody>
+        <(for [p (get-in data [:list])] ">
+        <tr>
+            <td><(:id p)></td>
+            <td>    <( p "name")></td>
+            <td>
+                <( p "sex")>
+            </td>
+            <td>
+              *****
+            </td>
+            <td>
+                *****
+            </td>
+            <td>
+                *****
+            </td>
+            <td>
+                <( p "source-come")>
+            </td>
+            <td>
+                <( p "status")>
+            </td>
+            <td>
+                <( p "province")>
+            </td>
+            <td>
+                <( p "sales")>
+            </td>
+
+            <td>
+                <a class="get-task" id='<(:key p)>' href='javascript:void(0)'  >领取</a>
+                <a class="del-source" id='<(:key p)>' href='javascript:void(0)'  >标记为无效线索</a>
+            </td>
+
+        </tr>
+        <")>
+
+        </tbody>
+
+    </table>
+</div>
+
+<(pager "/sources-pool" :page (:page data) :pagesize 20 :count (:count data))>
+
+{%endblock%}
+{%block script%}
+<script src="/js/sources-pool.js"></script>
+<script src="/js/source.js"></script>
+{%endblock%}

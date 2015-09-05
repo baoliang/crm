@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+{%block content%}
+<a  href='/data/edit/records?source=<(:source data)>&source-id=<(:source-id data)>' class='<(if-not (:source-id data) "none")> ui-button ui-button-lorange'>添加记录</a>
+<br/>
+<div class="ui-table-container">
+
+    <table class="ui-table"><!-- 可以在class中加入ui-table-inbox或ui-table-noborder分别适应不同的情况 -->
+        <thead>
+        <tr>
+            <th>id</th>
+            <th>线索</th>
+            <th>主题</th>
+            <th>意向状态</th>
+            <th>联系方式/结果</th>
+            <th>联系时间</th>
+            <th>下次联系时间</th>
+
+
+        </tr>
+        </thead><!-- 表头可选 -->
+        <tbody>
+        <(for [p (get-in data [:list])] ">
+        <tr>
+            <td><(:id p)></td>
+            <td>    <( p "source")></td>
+            <td>    <( p "topic")></td>
+            <td>
+                <( p "status")>
+            </td>
+            <td>
+                <( p "result")>
+            </td>
+            <td>
+                <( p "linked-time")>
+            </td>
+            <td>
+                <( p "next-linked-time")>
+            </td>
+
+
+        </tr>
+        <")>
+
+        </tbody>
+
+    </table>
+</div>
+<(pager "/data/records" :page (:page data) :pagesize 20 :count (:count data))>
+
+{%endblock%}
+{%block script%}
+
+{%endblock%}

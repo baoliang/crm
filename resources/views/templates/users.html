@@ -1,0 +1,85 @@
+{% extends "base.html" %}
+{%block content%}
+
+<div class="ui-table-container">
+    <div class='ui-tipbox ui-tipbox-success <(if-not (:edit data) "none")>'>
+        <div class="ui-tipbox-icon">
+            <i class="iconfont" title="成功">&#xF049;</i>
+        </div>
+        <div class="ui-tipbox-content">
+            <h3 class="ui-tipbox-title">修改成功</h3>
+
+        </div>
+    </div>
+    <div class='ui-tipbox ui-tipbox-success <(if-not (:new data) "none")>'>
+        <div class="ui-tipbox-icon">
+            <i class="iconfont" title="成功">&#xF049;</i>
+        </div>
+        <div class="ui-tipbox-content">
+            <h3 class="ui-tipbox-title">添加成功</h3>
+
+        </div>
+    </div>
+    <div class='ui-tipbox ui-tipbox-success <(if-not (:del data) "none")>'>
+        <div class="ui-tipbox-icon">
+            <i class="iconfont" title="成功">&#xF049;</i>
+        </div>
+        <div class="ui-tipbox-content">
+            <h3 class="ui-tipbox-title">删除成功</h3>
+
+        </div>
+    </div>
+    <div class='ui-tipbox ui-tipbox-success <(if-not (:reset-password data) "none")>'>
+        <div class="ui-tipbox-icon">
+            <i class="iconfont" title="成功">&#xF049;</i>
+        </div>
+        <div class="ui-tipbox-content">
+            <h3 class="ui-tipbox-title">重置密码成功</h3>
+
+        </div>
+    </div>
+    <table class="ui-table"><!-- 可以在class中加入ui-table-inbox或ui-table-noborder分别适应不同的情况 -->
+        <thead>
+        <tr>
+            <th>id</th>
+            <th>姓名</th>
+            <th>电话</th>
+
+            <th>邮箱</th>
+
+            <th>操作</th>
+
+        </tr>
+        </thead><!-- 表头可选 -->
+        <tbody>
+        <(for [p (get-in data [:list])] ">
+        <tr>
+            <td><(:id p)></td>
+            <td>    <(:name p)></td>
+            <td>
+                <(:phone p)>
+            </td>
+            <td>
+                <(:email p)>
+            </td>
+            <td>
+                <a href='/users/edit?id=<(:id p)>'  >修改</a>
+                <a href='/users/reset-password/<(:id p)>'  >重置密码</a>
+                <a href='javascript:location.href=encodeURI("/users/sources?name=<(:name p)>")'  >查看线索</a>
+                <a href='/users/del/<(:id p)>'  >删除</a>
+
+            </td>
+
+        </tr>
+        <")>
+
+        </tbody>
+
+    </table>
+</div>
+<(pager "/users" :page (:page data) :pagesize 10 :count (:count data))>
+
+{%endblock%}
+{%block script%}
+
+{%endblock%}

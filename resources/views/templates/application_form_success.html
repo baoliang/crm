@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <title>迎生CRM</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <link href="/themes/softed/Login.css" rel="stylesheet">
+    <link rel="stylesheet" href="/themes/softed/font-awesome/buttons-min.css">
+    <link rel="stylesheet" href="/themes/softed/font-awesome/font-awesome.min.css">
+    <script language="javascript">
+        function check() {
+            if (document.loginform.name.value == '') {
+                alert('用户名不能为空');
+                document.loginform.name.focus();
+                return false;
+            }
+            if (document.loginform.phone.value == '') {
+                alert('密码不能为空');
+                document.loginform.phone.focus();
+                return false;
+            }
+            if (document.loginform.user_validate.value == '') {
+                alert('验证码不能为空');
+                document.loginform.user_validate.focus();
+                return false;
+            }
+            document.loginform.submit();
+        }
+        function logining_load(){
+            document.loginform.user_name.focus();
+        }
+
+        function getOs(){
+            var agent = navigator.userAgent;
+            if(agent.indexOf("Opera") > -1){
+                return "Opera";
+            }else if(agent.indexOf("Firefox") > -1){
+                return "Firefox";
+            }else if(agent.indexOf("Chrome") > -1){
+                return "Chrome";
+            }else if(agent.indexOf("Safari") > -1){
+                return "Safari";
+            }else if(agent.indexOf("MSIE") > -1){
+                if(agent.indexOf("MSIE 6.0") > -1){
+                    return "IE6";
+                }else if(agent.indexOf("MSIE 7.0") > -1){
+                    return "IE7";
+                }else if(agent.indexOf("MSIE 8.0") > -1){
+                    return "IE8";
+                }else if(agent.indexOf("MSIE 9.0") > -1){
+                    return "IE9";
+                }else if(agent.indexOf("MSIE 10.0") > -1){
+                    return "IE10";
+                }else{
+                    return "IE";
+                }
+            }
+        }
+        //您使用的浏览器版本过低，请使用谷歌浏览器、火狐浏览器或者IE 9以上
+    </script>
+</head>
+
+<body>
+<!--[if lte IE 6]>
+<div style='border: 1px solid #F7941D; background: #FEEFDA; text-align: center; clear: both; height: 75px; position: relative;'>
+    <div style='position: absolute; right: 3px; top: 3px; font-family: courier new; font-weight: bold;'>
+        <img src='themes/softed/images/enumremove.gif' style='border: none;cursor:pointer;margin-top:10px;'
+             onclick='this.parentNode.parentNode.style.display="none";' alt='关闭本提示'/>
+        &nbsp;&nbsp;
+    </div>
+    <div style='width: 800px; margin: 0 auto; text-align: left; padding: 0; overflow: hidden;'>
+        <div style='width: 75px; float: left;'><img src='themes/softed/images/browser-remind.jpg' alt='提示您升级浏览器'/></div>
+        <div style='width: 275px; float: left; font-family: Arial, sans-serif;'>
+            <div style='font-size: 14px; font-weight: bold; margin-top: 12px;'>提示：您还在用即将淘汰的IE 6？</div>
+            <div style='font-size: 12px; margin-top: 6px; line-height: 12px;'>为了获得更好的用户检验，请升级您的浏览器！<br/>(从右边任选一个升级就不会出现本提示)</div>
+        </div>
+        <div style='float: left;margin-right:12px;margin-top:2px;'>
+            <a href='http://www.google.com/chrome' target='_blank'>
+                <img src='themes/softed/images/browse-chrome.jpg' style='border: none;' alt='升级为Google公司的Chrome浏览器' class='os-chrome'/>
+            </a>
+        </div>
+        <div style='width: 75px; float: left;'>
+            <a href='http://www.firefox.com' target='_blank'>
+                <img src='themes/softed/images/browser-firefox.jpg' style='border: none;' alt='升级为Firefox浏览器' class='os-firefox'/>
+            </a>
+        </div>
+        <div style='width: 73px; float: left;'>
+            <a href='http://www.apple.com/safari/download/' target='_blank'>
+                <img src='themes/softed/images/browser-safari.jpg' style='border: none;' alt='升级为苹果公司的Safari 4浏览器' class='os-safari'/>
+            </a>
+        </div>
+        <div style='width: 75px; float: left;'>
+            <a href='http://www.browserforthebetter.com/download.html' target='_blank'>
+                <img src='themes/softed/images/browser-ie.jpg' style='border: none;' alt='升级到微软公司的Internet Explorer 8'/>
+            </a>
+        </div>
+    </div>
+</div>
+<![endif]-->
+
+<!--[if IE 7]>
+<div style='border: 1px solid #F7941D; background: #FEEFDA; text-align: center; clear: both; height: 75px; position: relative;'>
+    <div style='position: absolute; right: 3px; top: 3px; font-family: courier new; font-weight: bold;'>
+        <img src='/themes/softed/images/enumremove.gif' style='border: none;cursor:pointer;margin-top:10px;'
+             onclick='this.parentNode.parentNode.style.display="none";' alt='关闭本提示'/>
+        &nbsp;&nbsp;
+    </div>
+    <div style='width: 800px; margin: 0 auto; text-align: left; padding: 0; overflow: hidden; color: black;'>
+        <div style='width: 75px; float: left;'><img src='themes/softed/images/browser-remind.jpg' alt='提示您升级浏览器'/></div>
+        <div style='width: 275px; float: left; font-family: Arial, sans-serif;'>
+            <div style='font-size: 14px; font-weight: bold; margin-top: 12px;'>提示：您还在用即将淘汰的IE 7？</div>
+            <div style='font-size: 12px; margin-top: 6px; line-height: 12px;'>为了获得更好的用户检验，请升级您的浏览器！<br/>(从右边任选一个升级就不会出现本提示)</div>
+        </div>
+        <div style='float: left;margin-right:12px;margin-top:2px;'>
+            <a href='http://www.google.com/chrome' target='_blank'>
+                <img src='/themes/softed/images/browse-chrome.jpg' style='border: none;' alt='升级为Google公司的Chrome浏览器' class='os-chrome'/>
+            </a>
+        </div>
+        <div style='width: 75px; float: left;'>
+            <a href='http://www.firefox.com' target='_blank'>
+                <img src='/themes/softed/images/browser-firefox.jpg' style='border: none;' alt='升级为Firefox浏览器' class='os-firefox'/>
+            </a>
+        </div>
+        <div style='width: 73px; float: left;'>
+            <a href='http://www.apple.com/safari/download/' target='_blank'>
+                <img src='/themes/softed/images/browser-safari.jpg' style='border: none;' alt='升级为苹果公司的Safari 4浏览器' class='os-safari'/>
+            </a>
+        </div>
+        <div style='width: 75px; float: left;'>
+            <a href='http://www.browserforthebetter.com/download.html' target='_blank'>
+                <img src='/themes/softed/images/browser-ie.jpg' style='border: none;' alt='升级到微软公司的Internet Explorer 8'/>
+            </a>
+        </div>
+    </div>
+</div>
+<![endif]-->
+
+<div class="isosremind" id="isosremind"></div>
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0" class="crm-login-header">
+    <tr>
+        <td align=center width=50%>
+        <a class="" href="/" target="_blank">
+            <img src="/crm-logo.jpg" border=0>
+        </a>
+    </td>
+    <td>&nbsp;</td>
+
+    <td align=center>
+        <a href ="http://www.c3crm.com/" target="_blank">迎生
+            CRM为您提供简单易用、稳定可靠的教育/培训管理系统，让您更专注于您的专业领域！</a>
+    </td>
+
+</tr>
+</table>
+<div id="login-container">
+    <div id="login-header">
+        <h3 style="line-height: 15px;">申请使用成功，我们会尽快联系你们。感谢您的关注！</h3>
+    </div> <!-- /login-header -->
+
+
+
+    <div id="login-extra">
+        <p></p><br>
+        <p>Copyright &copy; 2015 <a href='http://www.c3crm.com' target='_blank' class='crm-foot-url'>
+        </a>, all rights reserved.</p><p>联系电话：<span class='crm-foot-phone'>131 6198 4009</span> &nbsp;&nbsp;
+        E-mail: <span class='crm-foot-email'>zhangbaoliang.star@gmail.com</span></p>		</div> <!-- /login-extra -->
+
+</div> <!-- /login-wrapper -->
+</body>
+        </html>

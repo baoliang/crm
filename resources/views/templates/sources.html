@@ -1,0 +1,105 @@
+{% extends "base.html" %}
+{%block content%}
+
+<div class="ui-table-container">
+    <div class='ui-tipbox ui-tipbox-success <(if-not (:edit data) "none")>'>
+        <div class="ui-tipbox-icon">
+            <i class="iconfont" title="成功">&#xF049;</i>
+        </div>
+        <div class="ui-tipbox-content">
+            <h3 class="ui-tipbox-title">修改成功</h3>
+
+        </div>
+    </div>
+    <div class='ui-tipbox ui-tipbox-success <(if-not (:new data) "none")>'>
+        <div class="ui-tipbox-icon">
+            <i class="iconfont" title="成功">&#xF049;</i>
+        </div>
+        <div class="ui-tipbox-content">
+            <h3 class="ui-tipbox-title">添加成功</h3>
+
+        </div>
+    </div>
+    <div class='ui-tipbox ui-tipbox-success <(if-not (:del data) "none")>'>
+        <div class="ui-tipbox-icon">
+            <i class="iconfont" title="成功">&#xF049;</i>
+        </div>
+        <div class="ui-tipbox-content">
+            <h3 class="ui-tipbox-title">删除成功</h3>
+
+        </div>
+    </div>
+    <table class="ui-table"><!-- 可以在class中加入ui-table-inbox或ui-table-noborder分别适应不同的情况 -->
+        <thead>
+        <tr>
+            <th>id</th>
+            <th>学员姓名</th>
+            <th>家长姓名</th>
+            <th>电话</th>
+            <th>QQ</th>
+            <th>微信</th>
+            <th>线索来源</th>
+
+            <th>意向状态</th>
+
+            <th>省份</th>
+            <th>城市</th>
+            <th>招生老师</th>
+
+            <th>操作</th>
+
+        </tr>
+        </thead><!-- 表头可选 -->
+        <tbody>
+        <(for [p (get-in data [:list])] ">
+        <tr>
+            <td><(:id p)></td>
+            <td>    <( p "name")></td>
+            <td>
+                <( p "parent")>
+            </td>
+            <td>
+                <( p "phone")>
+            </td>
+            <td>
+                <( p "qq")>
+            </td>
+            <td>
+                <( p "weixin")>
+            </td>
+            <td>
+                <( p "source-come")>
+            </td>
+            <td>
+                <( p "status")>
+            </td>
+            <td>
+                <( p "province")>
+            </td>
+            <td>
+                <( p "city")>
+            </td>
+            <td>
+                <( p "sales")>
+            </td>
+
+            <td>
+                <a href='/data/edit/sources?id=<(:key p)>'  >修改</a>
+
+                <a class="" href='/records/<(p "name")>/<(:key p)>'  class='loan'>联系记录</a>
+                <a class="del-source" id='<(:key p)>' href='javascript:void(0)'  >标记为无效线索</a>
+            </td>
+
+        </tr>
+        <")>
+
+        </tbody>
+
+    </table>
+</div>
+<(pager "/data/sources" :page (:page data) :pagesize 10 :count (:count data))>
+
+{%endblock%}
+{%block script%}
+<script src="/js/source.js"></script>
+{%endblock%}

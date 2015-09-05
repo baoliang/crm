@@ -1,0 +1,104 @@
+
+
+<!DOCTYPE html>
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <title>迎生CRM</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="/img/fav.png" mce_href="/public/images/favicon_32.ico" rel="bookmark" type="image/x-icon" />
+    <link href="/img/fav.png" mce_href="/public/images/favicon_32.ico" rel="icon" type="image/x-icon" />
+    <link href="/img/fav.png" mce_href="/public/images/favicon_32.ico" rel="shortcut icon" type="image/x-icon" />
+    <link rel="stylesheet" href="/stylesheets/login.css">
+
+</head>
+
+<body >
+<div>
+<div class="top-bg-height bg-black">
+    <div class="center"><img class="logo" src="/img/logo-02.png"></div>
+</div>
+<div class="center">
+
+    <form class="pure-form" method="post" action="/login" name="loginform" id="loginform">
+        <div class="login-form-bg">
+           <div class="name margin-username">
+               <span>帐号</span>
+               <input type="text" class="pure-u-2-3" name="username">
+           </div>
+            <div class="name margin-password">
+                <span>密码</span>
+                <input type="password" class="pure-u-2-3" name="password">
+            </div>
+           <a href="javascript:void(0)" class="login-action"  >
+               <img src="/img/login.png" />
+           </a>
+        </div>
+        <div class="red">
+
+            <(get-in data [:alert])>
+        </div>
+        <a   class="reg" href="#reg-form" rel="modal:open" >注册</a>
+
+
+    </form>
+
+    <div  name="reg-form" id="reg-form" class="modal reg-form pure-form pure-form pure-form-aligned">
+        <fieldset>
+
+            <h3 class="reg-success" style="line-height: 15px;display: none">申请成功，我们会尽快联系你们。感谢关注！</h3>
+        <div class="pure-control-group">
+            <label class="" for="name">学校名称</label>
+
+                <input type="text" class="" name="name" id="name"
+                       value="<(get-in data [:name])>">
+
+        </div>
+        <span></span>
+        <div class="pure-control-group">
+            <label class="control-label" for="phone">联系电话</label>
+
+                <input type="text" class="" name="phone" id="phone"
+                       value="<(get-in data [:phone])>">
+
+        </div>
+
+            <span></span>
+        <div class="pure-control-group">
+            <label class="control-label" for="code">验证码</label>
+
+                <input type="text" class="" name="user_validate"  id="code">
+               <a href="javascript:void(0)" class="code-btn"> <img src="/code" class="code"></a>
+
+        </div>
+
+            <span></span>
+        <div class="pure-control-group">
+            <button class="button-success pure-button reg-form-action" title="确认"
+                    >确认
+            </button>
+        </div>
+        <div class="pure-control-group">
+
+            <b class="red">
+
+            </b>
+
+        </div>
+        </fieldset>
+    </div>
+</div>
+
+
+
+    <div class="foot center">
+            <p></p><br>
+            <p>Copyright &copy; 2015 <a href='http://www.c3crm.com' target='_blank' class='crm-foot-url'>
+                </a>, all rights reserved.</p><p>联系电话：<span class='contact'>131 6198 4009</span> &nbsp;&nbsp;
+            E-mail: <strong class='contact'>zhangbaoliang.star@gmail.com</strong></p>		</div> <!-- /login-extra -->
+
+    </div>
+</div>
+</body>
+</html>
+
+<script src="/js/login.bundle.js"></script>

@@ -1,0 +1,38 @@
+
+{% extends "base.html" %}
+{%block head%}
+<link media="all" href="/stylesheets/admin.css" rel="stylesheet">
+{%endblock%}
+{%block content%}
+<div class="chart">
+    <div class="pure-menu pure-menu-horizontal">
+        <ul class="pure-menu-list">
+            <li class="pure-menu-item"><a href="#" class="pure-menu-link">线索状态</a></li>
+            <li class="pure-menu-item">|</li>
+            <li class="pure-menu-item"><a href="#" class="pure-menu-link">线索省直辖市分布</a></li>
+            <li class="pure-menu-item">|</li>
+            <li class="pure-menu-item"><a href="#" class="pure-menu-link">线索城市分布</a></li>
+            <li class="pure-menu-item">|</li>
+            <li class="pure-menu-item"><a href="#" class="pure-menu-link">线索创建汇总</a></li>
+            <li class="pure-menu-item">|</li>
+            <li class="pure-menu-item"><a href="#" class="pure-menu-link">线索领取汇总</a></li>
+        </ul>
+    </div>
+    <div class="bg-white round">
+        线索状态汇总
+        <div id="main" style="height:400px"></div>
+        线索省直辖市分布
+        <div id="province_bar" style="height:400px"></div>
+        线索城市分布
+        <div id="city_bar" style="height:400px"></div>
+        线索创建汇总
+        <div id="create_sales_bar" style="height:400px"></div>
+        线索领取汇总
+        <div id="get_sales_bar" style="height:400px"></div>
+    </div>
+</div>
+{%endblock%}
+{%block script%}
+<script src="http://echarts.baidu.com/build/dist/echarts.js"></script>
+<script src="/js/admin.js"></script>
+{%endblock%}

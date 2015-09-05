@@ -1,0 +1,60 @@
+{% extends "super-admin-base.html" %}
+{%block content%}
+<form class="ui-form ui-form-large" name="" action="/admin/applies">
+    <fieldset>
+        <legend>查询</legend>
+
+        <div class="ui-form-item" >
+
+            <input class="ui-input" type="text" name="value">
+            <input type="submit" class="ui-button ui-button-lorange" value="查询">
+        </div>
+
+
+
+    </fieldset>
+</form>
+<div class="ui-table-container">
+
+    <table class="ui-table"><!-- 可以在class中加入ui-table-inbox或ui-table-noborder分别适应不同的情况 -->
+        <thead>
+        <tr>
+            <th>id</th>
+            <th>学校</th>
+            <th>电话</th>
+            <th>时间</th>
+            <th>操作</th>
+
+        </tr>
+        </thead><!-- 表头可选 -->
+        <tbody>
+        <(for [p (get-in data [:list])] ">
+        <tr>
+            <td><(:id p)></td>
+            <td><(:name p)></td>
+            <td>
+                <(:phone p)>
+            </td>
+
+            <td>
+
+                <(:create_time p)>
+            </td>
+            <td><a href='/admin/is_over_application?id=<(:id p)>'  class='<(if (:is_over p) "none")>'>标记为已联系</a>
+                <!--<a class="" href='/admin/enterprise_application/<(:name p)>'  class='loan'>申请企业帐户</a>-->
+
+            </td>
+
+        </tr>
+        <")>
+
+        </tbody>
+
+    </table>
+</div>
+<(pager "/admin/users" :page (:page data) :pagesize 10 :count (:count data))>
+
+{%endblock%}
+{%block script%}
+
+{%endblock%}

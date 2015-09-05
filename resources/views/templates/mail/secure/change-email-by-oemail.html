@@ -1,0 +1,63 @@
+<(set-email-subject! "验证旧邮箱地址--中瑞财富")>
+<html>
+<head>
+</head>
+<body style="background-color:#ececec">
+<!--用邮箱修改邮箱-->
+    <!--确认旧的邮箱地址-->
+    <!--http://localhost:3000/dev/mail/secure/change-email-by-oemail-->
+<table cellpadding="0" cellspacing="0" border="0" width="650" align="center" style="color:#4b4b4b;padding:0px;background-color:#fff">
+    <tr>
+        <td style="background-color:#3c6f9f;height:70px;font-size:14px;">
+		  <img src="<(absolute-url "/public/images/auth/email-bg.png")>">
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <div style="padding:20px 30px;">
+
+                <strong></strong>您好：<br/> <br/>
+
+                欢迎使用中瑞财富互联网金融平台！
+
+                请您使用下面链接来确认您的旧邮箱地址：<br/>
+
+                <div style="text-align:center">
+                    <a style="padding:5px 0 0;display:block;width:224px;height:20px;border:1px solid #20486c;background-color:#3c6f9f;color:#fff;text-decoration:none;margin:25px auto;"
+                       href="<(absolute-url "/secure-change-email-by-oemail" (select-keys data [:email :code]))>">确认邮箱地址</a>
+                </div>
+
+                <div>
+                    建议您直接点击链接或将此链接复制到浏览器的地址栏使用，避免因为您的邮件阅读程序不支持而导致无法正常验证！
+                </div>
+
+
+                <br/>链接地址：<br/>
+                <a href="<(absolute-url "/secure-change-email-by-oemail" (select-keys data [:email :code]))>" style="color:#3c6f9f;">
+                    <(absolute-url "/secure-change-email-by-oemail" (select-keys data [:email :code]))>
+                </a>
+                <br/><br/><br/>
+
+                <div style="padding:0 0 0 0px;color:#999;font-size:12px;">
+                    此邮件为系统自动发送，请勿回复。
+                </div>
+
+                <div style="text-align:right;list-style:none;padding:0;color:#999;font-size:14px;">中瑞财富&nbsp;</div>
+                <div style="text-align:right;list-style:none;padding:0;color:#999;font-size:14px;"><(datetime-format (now))></div>
+
+
+                <ul style="list-style:none;padding:0;color:#999;font-size:14px;">
+                    <li>客服邮箱：<a href="mailto:zrcf@zrcaifu.com" style="color:#3c6f9f;">zrcf@zrcaifu.com</a> &nbsp;&nbsp;&nbsp;&nbsp;
+                        客服专线：400-016-9558 &nbsp;&nbsp;&nbsp;&nbsp; 中瑞财富网站：<a href="http://www.zrcaifu.com" style="color:#3c6f9f;">www.zrcaifu.com</a>
+                    </li>
+
+                </ul>
+
+            </div>
+
+        </td>
+    </tr>
+</table>
+
+</body>
+</html>

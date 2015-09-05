@@ -1,0 +1,67 @@
+{% extends "base.html" %}
+{%block content%}
+
+<div class="pricing-tables pure-g">
+    {% include "price-left.html" %}
+    <div class="pure-u-1 pure-u-med-3-4">
+        <div class="pricing-table-free">
+            <div class='banner <(if user "hide")>'>
+                <h1>Coinexc</h1>
+                <p>
+                    Realtime exchange for the sake of alternative cryptocurrencies.
+                </p>
+                <p>
+                    <button class="pure-button pure-button-primary" onclick="location.href='/login'"> Sign in to start exchange </button>
+                </p>
+            </div>
+
+            <table class="pure-table pure-table-horizontal">
+                <thead>
+                <tr>
+
+                    <th></th>
+                    <th>Coin</th>
+                    <th class="address">Deposit address</th>
+                    <th class=""></th>
+                    <th></th>
+
+                </tr>
+                </thead>
+
+                <tbody>
+                <tr class="pure-table-odd" data-ember-action="695">
+                    <td>
+                        0
+                    </td>
+                    <td>
+                        MBC
+                    </td>
+                    <td>
+                        <a class="pure-button pure-button-primary" href="#">Generate</a>
+                    </td>
+
+                    <td><a class="button-success pure-button" href="/balance/detail?coin=mbc">Withdraw</a></td>
+                    <td><a class="pure-button" href="/balance/detail?coin=mbc">Details</a></td>
+
+                </tr>
+                <tr class="pure-table-odd" data-ember-action="695">
+                    <td>
+                        0
+                    </td>
+                    <td>
+                        EGC
+                    </td>
+                    <td>
+                        <a class="pure-button pure-button-primary" href="#">Generate</a>
+                    </td>
+
+                    <td><a class="button-success pure-button" href="/balance/detail?coin=mbc">Withdraw</a></td>
+                    <td><a class="pure-button" href="/balance/detail?coin=MBC">Details</a></td>
+
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+{%endblock%}

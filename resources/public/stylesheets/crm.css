@@ -1,0 +1,164 @@
+@import url(/bower_components/pure/pure.css);
+/* line 2, ../sass/base.scss */
+body {
+  background-color: #CCCCCC;
+}
+
+/* line 5, ../sass/base.scss */
+a {
+  text-decoration: none;
+}
+
+/* line 8, ../sass/base.scss */
+.round {
+  -moz-border-radius: 5px;
+  /* Gecko browsers */
+  -webkit-border-radius: 5px;
+  /* Webkit browsers */
+  border-radius: 5px;
+  /* W3C syntax */
+}
+
+/* line 13, ../sass/base.scss */
+.foot {
+  color: #757575;
+}
+/* line 15, ../sass/base.scss */
+.foot .contact {
+  font-weight: bold;
+  color: #8b0523;
+}
+
+/* line 20, ../sass/base.scss */
+.left {
+  float: left;
+}
+
+/* line 24, ../sass/base.scss */
+.right {
+  float: right;
+}
+
+/* line 27, ../sass/base.scss */
+.text-center {
+  text-align: center;
+}
+
+/* line 30, ../sass/base.scss */
+.bg-black {
+  background-color: #313333;
+}
+
+/* line 34, ../sass/base.scss */
+.top-bg-height {
+  height: 104px;
+}
+
+/* line 37, ../sass/base.scss */
+.center {
+  margin: 0 auto 0 auto;
+  text-align: center;
+  width: 960px;
+}
+
+/* line 42, ../sass/base.scss */
+.red {
+  color: red;
+}
+
+/* line 46, ../sass/base.scss */
+.button-success {
+  background: #7e9e2b;
+  /* this is a green */
+  color: white;
+}
+
+/* line 51, ../sass/base.scss */
+.clearfix:after {
+  content: " ";
+  display: block;
+  clear: both;
+  height: 0;
+}
+
+/* line 57, ../sass/base.scss */
+.none {
+  display: none;
+}
+
+/* line 60, ../sass/base.scss */
+.content {
+  background-color: #cccccc;
+  width: 89.99%;
+}
+
+/* line 64, ../sass/base.scss */
+.menu {
+  width: 10%;
+  background-color: #f4f9e0;
+}
+/* line 67, ../sass/base.scss */
+.menu ul {
+  padding: 0;
+  margin: 0;
+}
+/* line 70, ../sass/base.scss */
+.menu ul .current {
+  background-color: #d31a57;
+}
+/* line 74, ../sass/base.scss */
+.menu ul .not-current img {
+  margin: 30px 0 10px 0;
+}
+/* line 78, ../sass/base.scss */
+.menu ul li {
+  border-bottom: solid 1px #e5e3ce;
+  text-align: center;
+  list-style-type: none;
+}
+
+/* line 85, ../sass/base.scss */
+.logo-wrap {
+  margin: 40px 0 0 25px;
+}
+
+/* line 89, ../sass/base.scss */
+.logo {
+  margin-top: 25px;
+}
+
+/* line 94, ../sass/base.scss */
+.user-info {
+  margin: 15px 25px 0 0;
+}
+/* line 96, ../sass/base.scss */
+.user-info span {
+  color: white;
+}
+/* line 99, ../sass/base.scss */
+.user-info .quit {
+  position: relative;
+  padding-top: -10px;
+  top: 6px;
+}
+/* line 104, ../sass/base.scss */
+.user-info .user-name {
+  margin-left: 5px;
+  color: #4c592c;
+}
+
+/* line 110, ../sass/base.scss */
+.custom-tips {
+  margin: 20px;
+  font-size: 12px;
+}
+
+/* line 114, ../sass/base.scss */
+.bg-white {
+  background-color: white;
+}
+
+/* line 5, ../sass/crm.scss */
+.logo {
+  margin-left: 5%;
+}

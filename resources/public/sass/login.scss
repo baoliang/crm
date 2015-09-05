@@ -1,0 +1,60 @@
+@import '/bower_components/pure/pure.css';
+@import '/bower_components/pure/forms.css';
+@import '/bower_components/pure/buttons.css';
+@import '/bower_components/jquery-modal/jquery.modal.css';
+@import 'value';
+@import 'base';
+
+
+.login-form-bg {
+  background-image: url('/img/login-form-bg.png');
+  width: 245px;
+  height: 95px;
+  margin: 205px auto 30px auto;
+  .margin-username {
+    margin: 11px 0 0 5px;
+  }
+  .margin-password {
+    margin: 54px 0 0 5px;
+  }
+  .name {
+    position: absolute;
+    span {
+      color:white;
+      font-size: 17px;
+    }
+    input {
+      background-color: #e6e6e6;
+    }
+  }
+}
+.reg {
+  color: #757575;
+  display: block;
+  margin-bottom: 180px;
+}
+.login-action {
+  position: absolute;
+  margin-left: 108px;
+  margin-top: 33px;
+}
+.reg-form {
+  width: 372px;
+  color: #8d8d8d;
+  height: 248px;
+  div {
+    margin-left:-150px;
+
+  }
+  span {
+    margin: 0 0 10px 16px;
+    background-color: red;
+    /* height: 15px; */
+    width: 299px;
+    border-bottom: solid 1px #c3c3c3;
+    display: block;
+  }
+  .code {
+    position: fixed;
+  }
+}

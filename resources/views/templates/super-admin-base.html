@@ -1,0 +1,91 @@
+
+
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>迎生CRM管理后台</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="generator" content="nico 0.5.1" />
+    <link href="/img/fav.png" mce_href="/public/images/favicon_32.ico" rel="bookmark" type="image/x-icon" />
+    <link href="/img/fav.png" mce_href="/public/images/favicon_32.ico" rel="icon" type="image/x-icon" />
+    <link href="/img/fav.png" mce_href="/public/images/favicon_32.ico" rel="shortcut icon" type="image/x-icon" />
+    <link media="all" href="/static/css/alice.css" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/normalize.css" />
+    <link rel="stylesheet" href="/static/css/site.css" />
+    <link rel="stylesheet" href="/static/css/solarized.css" />
+    <link rel="stylesheet" href="/static/css/style.css" />
+    <link rel="stylesheet" href="/static/css/crm.css" />
+    <style>
+        /* alipay iconfont */
+        @font-face {
+            font-family: "rei";
+            src: url("https://i.alipayobjects.com/common/fonts/rei.eot?20130423"); /* IE9 */
+            src: url("https://i.alipayobjects.com/common/fonts/rei.eot?20130423#iefix") format("embedded-opentype"), /* IE6-IE8 */
+            url("https://i.alipayobjects.com/common/fonts/rei.woff?20130423") format("woff"), /* chrome 6+、firefox 3.6+、Safari5.1+、Opera 11+ */
+            url("https://i.alipayobjects.com/common/fonts/rei.ttf?20130423")  format("truetype"), /* chrome、firefox、opera、Safari, Android, iOS 4.2+ */
+            url("https://i.alipayobjects.com/common/fonts/rei.svg?20130423#rei") format("svg"); /* iOS 4.1- */
+        }
+        .iconfont {
+            font-family: "rei"!important;
+            font-style: normal;
+            font-weight: normal;
+            cursor: default;
+            -webkit-font-smoothing: antialiased;
+        }
+    </style>
+
+
+
+    <!--[if lt IE 9]>
+    <script src="/static/js/html5shiv.js"></script>
+    <![endif]-->
+
+    <script>
+        seajs.use(['arale-sticky', '/static/side'], function(Sticky, side) {
+            Sticky('.side-area', 20);
+            side.init();
+        });
+    </script>
+</head>
+<body>
+<div id="body-wrapper">
+    <div class="head-area">
+        <div class="title-area">
+            <h1>
+                <a href="/">迎生</a>
+            </h1>
+            <p class="description">唐 张鷟 《游仙窟》：“巧儿旧来镌未得，画匠迎生模不成。”</p>
+            <img src="/static/alice-top.png" alt="alice" />
+        </div>
+
+    </div>
+    <div class="nav-area">
+        <ol class="main-nav">
+            <li><a href="/"><i title="首页" class="iconfont"></i>用户申请列表</a></li>
+            <li><a href="/admin/companies">学校列表</a></li>
+            <li>    <a href="/quit">退出</a></li>
+        </ol>
+    </div>
+
+    <div class="main-area">
+
+
+        <div class="content-area">
+            {%block content%}
+            {%endblock%}
+        </div>
+    </div>
+</div>
+<div id="footer-wrapper">
+    <footer>
+        <p class="powered">
+            <a href="https://github.com/baoliang">Zhang Baoliang</a> •
+
+        </p>
+    </footer>
+</div>
+</body>
+</html>
+{%block script%}
+{%endblock%}

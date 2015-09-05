@@ -1,0 +1,140 @@
+{% extends "base.html" %}
+{%block css%}
+
+{%endblock%}
+{%block content%}
+
+<form class="ui-form" method="post" action="/records/edit">
+    <fieldset>
+        <legend>添加线索</legend>
+
+        <div class="ui-form-item ui-form-item-error">
+            <label for="" class="ui-label"><(if (:key data) "修改" "添加" )>联系记录</label>
+            <input type="hidden" name="table" value="records">
+            <input type="hidden" name="key" value="<(:key data)>">
+            <input type="hidden" name="source" value='<(data "source" )>'>
+                          <input type="hidden" name ="sales" value='<(:name user)>'>
+            <input type="hidden" name="source-id" value='<(data "source-id")>'>
+        </div>
+
+        <div class="ui-form-item">
+            <label for="" class="ui-label">
+                <span class="ui-form-required">*</span>主题
+            </label>
+            <input class="ui-input" name="topic" value='<(data "name")>' type="text">
+
+        </div>
+        <div class="ui-form-item">
+            <label for="" class="ui-label">
+                <span class="ui-form-required">*</span>联系时间
+            </label>
+            <input class="ui-input" id="linked-time" name="linked-time" value='<(data "linked-time")>' type="text">
+
+        </div>
+
+        <div class="ui-form-item">
+            <label for="" class="ui-label">
+                <span class="ui-form-required">*</span>下次联系时间
+            </label>
+            <input class="ui-input" id="next-linked-time" name="next-linked-time" value='<(data "linked-time")>' type="text">
+
+        </div>
+        <div class="ui-form-item ">
+            <label for="" class="ui-label">意向状态</label>
+            <select id="status" name="status">
+
+                <option value="无"
+                <(if (and (:key data) (= "无" (data "status"))) "selected=true")>>
+                无
+                </option>
+                            <option value="成功"
+                <(if (and (:key data) (= "成功" (data "status"))) "selected=true")>>
+                成功
+                 </option>
+                         <option value="失败"
+                <(if (and (:key data) (= "失败" (data "status"))) "selected=true")>>
+                失败
+                 </option>
+                <option value="继续跟进"
+                <(if (and (:key data) (= "继续跟进" (data "status"))) "selected=true")>>
+                继续跟进
+                </option>
+             
+                <option value="潜在"
+                <(if (and (:key data) (= "潜在" (data "status"))) "selected=true")>>
+                潜在
+                </option>
+                <option value="意向中"
+                <(if (and (:key data) (= "意向中" (data "status"))) "selected=true")>>
+                意向中
+                </option>
+                <option value="意向中 强"
+                <(if (and (:key data) (= "意向中 强" (data "status"))) "selected=true")>>
+                意向中 强
+                </option>
+                <option value="意向中 中强"
+                <(if (and (:key data) (= "意向中 中强" (data "status"))) "selected=true")>>
+                意向中 中强
+                </option>
+                <option value="意向中 一般"
+                <(if (and (:key data) (= "意向中 一般" (data "status"))) "selected=true")>>
+                意向中 一般
+                </option>
+                <option value="预报名"
+                <(if (and (:key data) (= "预报名" (data "status"))) "selected=true")>>
+                预报名
+                </option>
+                <option value="已结束"
+                <(if (and (:key data) (= "已结束" (data "status"))) "selected=true")>>
+                已结束
+                </option>
+
+            </select>
+
+        </div>
+
+        <div class="ui-form-item">
+            <label for="" class="ui-label">联系方式/结果</label>
+            <select id="province" name="result">
+
+                    <option value="无" <(if (and (:key data) (= "无" (data "result"))) "selected=true")>>
+                        无
+                    </option>
+                    <option value="来电" <(if (and (:key data) (= "来电" (data "result"))) "selected=true")>>
+                        来电
+                    </option>
+                    <option value="来访" <(if (and (:key data) (= "来访" (data "result"))) "selected=true")>>
+                        来访
+                    </option>
+                    <option value="电话未接通" <(if (and (:key data) (= "电话未接通" (data "result"))) "selected=true")>>
+                        电话未接通
+                    </option>
+                    <option value="去电联系成功" <(if (and (:key data) (= "去电联系成功" (data "result"))) "selected=true")>>
+                        去电联系成功
+                    </option>
+                    <option value="发送邮件" <(if (and (:key data) (= "发送邮件" (data "result"))) "selected=true")>>
+                        发送邮件
+                    </option>
+                    <option value="发送短信" <(if (and (:key data) (= "发送短信" (data "result"))) "selected=true")>>
+                        发送短信
+                    </option>
+
+            </select>
+        </div>
+
+
+        <div class="ui-form-item">
+            <input type="submit" class="ui-button ui-button-morange" value="确定">
+            <input type="button" class="ui-button ui-button-mwhite" value="取消" onclick="history.back()">
+        </div>
+    </fieldset>
+</form>
+
+{%endblock%}
+{%block script%}
+
+<script type="text/javascript" src="/laydate/laydate.dev.js"></script>
+<script type="text/javascript" src="/js/records.js"></script>
+
+
+{%endblock%}

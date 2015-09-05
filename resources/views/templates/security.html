@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+{%block content%}
+
+<form class='ui-form ui-form-large <(if (get-in data [:success]) "none")>' name="" method="post" action="/security/change-password" id="">
+    <fieldset>
+        <legend>修改密码</legend>
+
+        <div class="ui-form-item">
+            <label for="" class="ui-label">
+                <span class="ui-form-required">*</span>修改密码
+            </label>
+            <input class="ui-input" type="password" name="password">
+            <p class="ui-form-explain">填写新密码。</p>
+        </div>
+
+
+
+
+        <div class="ui-form-item">
+            <input type="submit" class="ui-button ui-button-lorange" value="确定">
+        </div>
+
+    </fieldset>
+</form>
+<div class='ui-tiptext-container ui-tiptext-container-success <(if-not (get-in data [:success]) "none")>' >
+    <p class="ui-tiptext ui-tiptext-success">
+        <i class="ui-tiptext-icon iconfont" title="成功">&#xF049;</i>
+        修改密码成功。
+    </p>
+</div>
+{%endblock%}
+{%block script%}
+
+{%endblock%}

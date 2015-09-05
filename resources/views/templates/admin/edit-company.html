@@ -1,0 +1,70 @@
+{% extends "super-admin-base.html" %}
+{%block content%}
+<div class="ui-box">
+    <div class="ui-box-head">
+        <h3 class="ui-box-head-title">添加学校</h3>
+        <span class="ui-box-head-text"></span>
+        <a href="#" class="ui-box-head-more"></a>
+    </div>
+    <div class="ui-box-container">
+        <div class="ui-box-content"><form class="ui-form" name="" method="post" action="#" id="">
+            <fieldset>
+                <legend>表单标题</legend>
+
+
+
+                <div class="ui-form-item">
+                    <label for="" class="ui-label">
+                        <span class="ui-form-required">*</span>学校名称
+                    </label>
+                    <input value="<(get-in data [:name])>" class="ui-input" type="text" name="name">
+                </div>
+
+                <div class='ui-form-item ui-form-item-error <(if (and (get-in data [:phone]) (get-in data [:edit])) "none")>'>
+                    <label for="" class="ui-label">管理员手机</label>
+                    <input value="<(get-in data [:phone])>" name="phone" class="ui-input ui-input-large" type="text">
+                    <p class='ui-form-explain ui-tiptext ui-tiptext-error <(if-not (get-in data [:phone-is-exit]) "none")>' >
+                        <i class="ui-tiptext-icon iconfont" title="出错">&#xF045;</i>
+                        手机号码已存在
+                    </p>
+                </div>
+                <div class='ui-form-item ui-form-item-error <(if (and (get-in data [:email]) (get-in data [:edit])) "none")>'>
+                    <label for="" class="ui-label">管理员邮箱</label>
+                    <input name="email" value="<(get-in data [:email])>" class="ui-input ui-input-large" type="text">
+                    <p class='ui-form-explain ui-tiptext ui-tiptext-error <(if-not (get-in data [:email-is-exit]) "none")>' >
+                        <i class="ui-tiptext-icon iconfont" title="出错">&#xF045;</i>
+                        邮箱已存在
+                    </p>
+                </div>
+
+                <div class="ui-form-item ui-form-item-error">
+                    <label for="" class="ui-label">管理员密码</label>
+                    <input name="password" value="<(get-in data [:password])>" class="ui-input ui-input-large" type="password">
+
+                </div>
+
+
+                <div class="ui-form-item">
+                    <label for="is_paid">
+                        <input class="ui-checkbox" name="is_paid" type="checkbox" <(if (get-in data [:is_paid]) "checked='checked'")>>
+                        是否欠费
+                    </label>
+                </div>
+
+
+
+                <div class="ui-form-item">
+                    <input type="submit" class="ui-button ui-button-morange" value="确定">
+
+                </div>
+            </fieldset>
+        </form>
+        </div>
+    </div>
+</div>
+
+
+{%endblock%}
+{%block script%}
+
+{%endblock%}

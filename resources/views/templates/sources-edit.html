@@ -1,0 +1,176 @@
+{% extends "base.html" %}
+{%block content%}
+
+<form class="ui-form" method="post" action="/sources/edit">
+    <fieldset>
+        <legend>添加线索</legend>
+
+        <div class="ui-form-item ui-form-item-error">
+            <label for="" class="ui-label"><(if (:key data) "修改" "添加" )>线索</label>
+            <input type="hidden" name="table" value="sources">
+            <input type="hidden" name="key" value="<(:key data)>">
+        </div>
+
+        <div class="ui-form-item">
+            <label for="" class="ui-label">
+                <span class="ui-form-required">*</span>学员姓名
+            </label>
+            <input class="ui-input" name="name" value='<(if (data "name") (data "name") "")>' type="text">
+
+        </div>
+    <div class="ui-form-item">
+            <label for="" class="ui-label">
+             家长姓名
+            </label>
+            <input class="ui-input" name="parent" value='<(data "parent")>' type="text">
+
+        </div>
+        <div class='ui-form-item <(if-not (get-in user [:is_admin]) "none")>'>
+            <label for="" class="ui-label">招生老师</label>
+              <(if  (get-in user [:is_admin])  ">
+            <select id="province" name="sales">
+                <option value="无">无</option>
+
+            
+                <(for [p (:sales data)] ">
+                <option value="<(get-in p [:name])>"
+                <(if (and (:key data) (= (:name p) (data "sales"))) "selected=true")>><(get-in p [:name])></option>
+                <")>
+               
+            </select>
+              <"">
+                <input type="hidden" name ="sales" value='<(:name user)>'>
+                <")>
+        </div>
+   
+        <div class="ui-form-item ">
+            <label for="" class="ui-label">电话</label>
+            <input class="ui-input ui-input-large" name="phone" value='<(data "phone")>' type="text">
+
+        </div>
+
+        <div class="ui-form-item ">
+            <label for="" class="ui-label">QQ</label>
+            <input class="ui-input ui-input-large" name="qq" value='<(data "qq")>' type="text">
+
+        </div>
+
+        <div class="ui-form-item ">
+            <label for="" class="ui-label">微信</label>
+            <input class="ui-input ui-input-large" name="weixin" value='<(data "weixin")>' type="text">
+
+        </div>
+
+
+        <div class="ui-form-item ">
+            <label for="" class="ui-label">线索来源</label>
+            <input class="ui-input ui-input-large" name="source-come" type="text" value='<(data "source-come")>'>
+
+        </div>
+        <div class="ui-form-item ">
+            <label for="" class="ui-label">意向状态</label>
+            <select id="status" name="status">
+
+                <option value="无"
+                <(if (and (:key data) (= "无" (data "status"))) "selected=true")>>
+                无
+                </option>
+                              <option value="成功"
+                <(if (and (:key data) (= "成功" (data "status"))) "selected=true")>>
+                成功
+                 </option>
+                         <option value="失败"
+                <(if (and (:key data) (= "失败" (data "status"))) "selected=true")>>
+                失败
+                 </option>
+                <option value="继续跟进"
+                <(if (and (:key data) (= "继续跟进" (data "status"))) "selected=true")>>
+                继续跟进
+                </option>
+                <option value="潜在"
+                <(if (and (:key data) (= "潜在" (data "status"))) "selected=true")>>
+                潜在
+                </option>
+                <option value="意向中"
+                <(if (and (:key data) (= "意向中" (data "status"))) "selected=true")>>
+                意向中
+                </option>
+                <option value="意向中 强"
+                <(if (and (:key data) (= "意向中 强" (data "status"))) "selected=true")>>
+                意向中 强
+                </option>
+                <option value="意向中 中强"
+                <(if (and (:key data) (= "意向中 中强" (data "status"))) "selected=true")>>
+                意向中 中强
+                </option>
+                <option value="意向中 一般"
+                <(if (and (:key data) (= "意向中 一般" (data "status"))) "selected=true")>>
+                意向中 一般
+                </option>
+                <option value="预报名"
+                <(if (and (:key data) (= "预报名" (data "status"))) "selected=true")>>
+                预报名
+                </option>
+                <option value="已结束"
+                <(if (and (:key data) (= "已结束" (data "status"))) "selected=true")>>
+                已结束
+                </option>
+
+            </select>
+
+        </div>
+
+        <div class="ui-form-item">
+            <label for="" class="ui-label">省份</label>
+            <select id="province" name="province">
+                <option value="无"    <(if (and (:key data) (= "无" (data "province"))) "selected=true")>>无</option>
+                <option value="安徽"  <(if (and (:key data) (= "安徽" (data "province"))) "selected=true")>>安徽</option>
+                <option value="北京"  <(if (and (:key data) (= "北京" (data "province"))) "selected=true")>>北京</option>
+                <option value="福建"  <(if (and (:key data) (= "福建" (data "province"))) "selected=true")>>福建</option>
+                <option value="甘肃"  <(if (and (:key data) (= "甘肃" (data "province"))) "selected=true")>>甘肃</option>
+                <option value="广东"  <(if (and (:key data) (= "广东" (data "province"))) "selected=true")>>广东</option>
+                <option value="广西"  <(if (and (:key data) (= "广西" (data "province"))) "selected=true")>>广西</option>
+                <option value="贵州"  <(if (and (:key data) (= "贵州" (data "province"))) "selected=true")>>贵州</option>
+                <option value="海南"  <(if (and (:key data) (= "海南" (data "province"))) "selected=true")>>海南</option>
+                <option value="河北"  <(if (and (:key data) (= "河北" (data "province"))) "selected=true")>>河北</option>
+                <option value="河南"  <(if (and (:key data) (= "河南" (data "province"))) "selected=true")>>河南</option>
+                <option value="黑龙江"  <(if (and (:key data) (= "黑龙江" (data "province"))) "selected=true")>>黑龙江</option>
+                <option value="湖北"  <(if (and (:key data) (= "湖北" (data "province"))) "selected=true")>>湖北</option>
+                <option value="湖南"  <(if (and (:key data) (= "湖南" (data "province"))) "selected=true")>>湖南</option>
+                <option value="吉林"  <(if (and (:key data) (= "吉林" (data "province"))) "selected=true")>>吉林</option>
+                <option value="江苏"  <(if (and (:key data) (= "江苏" (data "province"))) "selected=true")>>江苏</option>
+                <option value="江西"  <(if (and (:key data) (= "江西" (data "province"))) "selected=true")>>江西</option>
+                <option value="辽宁"  <(if (and (:key data) (= "辽宁" (data "province"))) "selected=true")>>辽宁</option>
+                <option value="内蒙古"  <(if (and (:key data) (= "内蒙古" (data "province"))) "selected=true")>>内蒙古</option>
+                <option value="宁夏"  <(if (and (:key data) (= "宁夏" (data "province"))) "selected=true")>>宁夏</option>
+                <option value="青海"  <(if (and (:key data) (= "青海" (data "province"))) "selected=true")>>青海</option>
+                <option value="山东"  <(if (and (:key data) (= "山东" (data "province"))) "selected=true")>>山东</option>
+                <option value="山西"  <(if (and (:key data) (= "山西" (data "province"))) "selected=true")>>山西</option>
+                <option value="陕西"  <(if (and (:key data) (= "陕西" (data "province"))) "selected=true")>>陕西</option>
+                <option value="上海"  <(if (and (:key data) (= "上海" (data "province"))) "selected=true")>>上海</option>
+                <option value="四川"  <(if (and (:key data) (= "四川" (data "province"))) "selected=true")>>四川</option>
+                <option value="天津"  <(if (and (:key data) (= "天津" (data "province"))) "selected=true")>>天津</option>
+                <option value="西藏"  <(if (and (:key data) (= "西藏" (data "province"))) "selected=true")>>西藏</option>
+                <option value="新疆"  <(if (and (:key data) (= "新疆" (data "province"))) "selected=true")>>新疆</option>
+                <option value="云南"  <(if (and (:key data) (= "云南" (data "province"))) "selected=true")>>云南</option>
+                <option value="浙江"  <(if (and (:key data) (= "浙江" (data "province"))) "selected=true")>>浙江</option>
+                <option value="重庆"  <(if (and (:key data) (= "重庆" (data "province"))) "selected=true")>>重庆</option>
+            </select>
+        </div>
+
+        <div class="ui-form-item ">
+            <label for="" class="ui-label">城市</label>
+            <input class="ui-input ui-input-large" name="city" type="text" value='<(if (data "city") (data "city") "无")>'>
+
+        </div>
+        <div class="ui-form-item">
+            <input type="submit" class="ui-button ui-button-morange" value="确定">
+            <input type="button" class="ui-button ui-button-mwhite" value="取消" onclick="history.back()">
+        </div>
+    </fieldset>
+</form>
+
+{%endblock%}
+{%block script%}
+
+{%endblock%}

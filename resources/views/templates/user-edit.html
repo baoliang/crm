@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+{%block content%}
+
+<form class="ui-form" method="post" action="/users/edit">
+    <fieldset>
+        <legend>用户</legend>
+
+        <div class="ui-form-item ui-form-item-error">
+            <label for="" class="ui-label"><(if (:id data) "修改" "添加" )>招生老师</label>
+
+            <input type="hidden" name="id" value="<(:id data)>">
+        </div>
+
+        <div class="ui-form-item">
+            <label for="" class="ui-label">
+                <span class="ui-form-required">*</span>姓名
+            </label>
+            <input class="ui-input" name="name" value='<(:name data )>' type="text">
+
+        </div>
+
+
+        <div class="ui-form-item ">
+            <label for="" class="ui-label"> <span class="ui-form-required">*</span>电话</label>
+            <input class="ui-input ui-input-large" name="phone"  value='<(:phone data)>' type="text">
+
+        </div>
+
+        <div class="ui-form-item ">
+            <label for="" class="ui-label"> <span class="ui-form-required">*</span>邮箱</label>
+            <input class="ui-input ui-input-large" name="email"   value='<(:email data )>' type="text">
+
+        </div>
+        <(if-not (:id data) ">
+        <div class="ui-form-item ">
+            <label for="" class="ui-label"> <span class="ui-form-required">*</span>密码</label>
+            <input class="ui-input ui-input-large" name="password" type="password"   value='' type="text">
+
+        </div>
+        <")>
+
+
+        </div>
+
+
+
+        <div class="ui-form-item">
+            <input type="submit" class="ui-button ui-button-morange" value="确定">
+            <input type="button" class="ui-button ui-button-mwhite" value="取消" onclick="history.back()">
+        </div>
+    </fieldset>
+</form>
+
+{%endblock%}
+{%block script%}
+
+{%endblock%}

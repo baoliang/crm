@@ -1,0 +1,97 @@
+
+
+<!DOCTYPE html>
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <title>迎生CRM</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+
+
+</head>
+
+<body>
+
+
+<div class="isosremind" id="isosremind"></div>
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0" class="crm-login-header">
+    <tr>
+        <td align=center width=50%>
+            <a class="" href="http://www.c3crm.com" target="_blank">
+                <img src="/crm-logo.jpg" border=0>
+            </a>
+        </td>
+        <td>&nbsp;</td>
+
+        <td align=center>
+            <a href ="/" target="_blank">迎生
+                CRM为您提供简单易用、稳定可靠的教育/培训管理系统，让您更专注于您的专业领域！</a>
+        </td>
+
+    </tr>
+</table>
+<div id="login-container">
+    <div id="login-header">
+        <h3 style="line-height: 15px;">申请使用</h3>
+    </div> <!-- /login-header -->
+    <div id="login-content" class="clearfix">
+
+        <form method="post" action="/application_form"  name="loginform" id="loginform">
+            <h3 class="reg-success" style="line-height: 15px;display: none">申请使用成功，我们会尽快联系你们。感谢您的关注！</h3>
+            <div class="control-group">
+                <label class="control-label" for="name">学校名称</label>
+                <label class="control-info">
+                    <input type="text" class="" name="name"
+                          value="<(get-in data [:name])>">
+                </label>
+            </div>
+            <div class="control-group">
+                <label class="control-label" for="phone">联系电话</label>
+                <label class="control-info">
+                    <input type="text" class="" name="phone"
+                       value="<(get-in data [:phone])>">
+                </label>
+            </div>
+            <div class="control-group">
+                <label class="control-label" for="password">验证码</label>
+                <label class="control-info">
+                    <input type="text" class="" name="user_validate" style="width:200px;margin-right:40px;">
+                    <img src="/code">
+
+                </label>
+            </div>
+            <div class="control-group">
+                <button class="pure-button pure-button-success icon-2x" title="确认"
+                        onclick="check();return false;" >
+                    <i class="icon-signin"></i> 确认
+                </button>
+            </div>
+
+            <div class="control-group">
+
+                <b class="small">
+                    <(get-in data [:error])>
+                </b>
+
+
+                &nbsp;
+            </div>
+        </form>
+
+    </div> <!-- /login-content -->
+
+
+    <div id="login-extra">
+        <p></p><br>
+        <p>Copyright &copy; 2015 <a href='http://www.c3crm.com' target='_blank' class='crm-foot-url'>
+        </a>, all rights reserved.</p><p>联系电话：<span class='crm-foot-phone'>131 6198 4009</span> &nbsp;&nbsp;
+        E-mail: <span class='crm-foot-email'>zhangbaoliang.star@gmail.com</span></p>		</div> <!-- /login-extra -->
+
+</div> <!-- /login-wrapper -->
+</body>
+</html>
+<script language="javascript">
+
+
+</script>

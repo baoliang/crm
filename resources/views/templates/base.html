@@ -1,0 +1,120 @@
+<!doctype html>
+<html>
+<head>
+    <title>迎生CRM</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <link href="/img/fav.png" mce_href="/public/images/favicon_32.ico" rel="bookmark" type="image/x-icon" />
+    <link href="/img/fav.png" mce_href="/public/images/favicon_32.ico" rel="icon" type="image/x-icon" />
+    <link href="/img/fav.png" mce_href="/public/images/favicon_32.ico" rel="shortcut icon" type="image/x-icon" />
+
+    <link media="all" href="/stylesheets/crm.css" rel="stylesheet">
+    {%block css%}
+    {%endblock%}
+
+
+</head>
+<body>
+<div class="top-bg-height bg-black">
+    <div class="logo-wrap left">
+        <a class="logo" href="/"><img  src="/img/logo.png"></a>
+    </div>
+
+    <div id="ws-tips" class="ui-tiptext-container ui-tiptext-container-question none">
+        <p class="ui-tiptext ui-tiptext-question">
+            <i id="ws-tips-text" class="ui-tiptext-icon iconfont" title="疑问">&#xF04A;</i>
+
+        </p>
+    </div>
+    <div class="user-info right">
+        <span>欢迎您</span>
+        <a class="user-name" href="/security" onclick="ListBulkDownDrop(this,'headtooltabdiv');return false;">
+            <(get-in user [:name])>
+        </a>
+        <a href="/quit" class="quit"> <img src="/img/arrow.png" /></a>
+        <div class="search">
+
+        </div>
+    </div>
+</div>
+<!--<div class=""-->
+<!--onClick="window.location.href='/sources/edit';">-->
+<!--新增招生线索-->
+<!--</div>-->
+<!--<div class='list-bulk-link <(if-not (get-in user [:is_admin]) "none")>'-->
+<!--onClick="window.location.href='/users/edit';">-->
+<!--新增招生老师-->
+<!--</div>-->
+
+                    <!--&lt;!&ndash;[if IE]>-->
+                    <!--<td style="width:1px" class=small>&nbsp;</td>-->
+                    <!--<![endif]&ndash;&gt;-->
+                    <!--<td class='<(if (or (= "/sources" (:uri request)) (= "/data/edit/sources" (:uri request))) "crm-head-link-on" "crm-head-link")>'-->
+                        <!--align="center" nowrap><a href="/sources">我的线索</a>-->
+                    <!--</td>-->
+                    <!--&lt;!&ndash;[if IE]>-->
+                    <!--<td style="width:1px" class=small>&nbsp;</td>-->
+                    <!--<![endif]&ndash;&gt;-->
+                    <!--<td class='<(if (= "/sources-pool" (:uri request)) "crm-head-link-on" "crm-head-link")>  '-->
+                        <!--align="center" nowrap><a href="/sources-pool">线索池</a>-->
+                    <!--</td>-->
+                    <!--&lt;!&ndash;[if IE]>-->
+                    <!--<td style="width:1px" class=small>&nbsp;</td>-->
+                    <!--<![endif]&ndash;&gt;-->
+                    <!--<td class='<(if (.startsWith (:uri request)  "/users" ) "crm-head-link-on" "crm-head-link")> <(if-not (get-in user [:is_admin]) "none")>'-->
+                        <!--align="center" nowrap><a href="/users">招生老师</a></td>-->
+
+                    <!--&lt;!&ndash;[if IE]>-->
+                    <!--<td style="width:1px" class=small>&nbsp;</td>-->
+                    <!--<![endif]&ndash;&gt;-->
+                    <!--<td class='<(if (or  (= "/records/edit" (:uri request)) (= "/records" (:uri request)) (= "/data/records" (:uri request))) "crm-head-link-on" "crm-head-link")>  '-->
+                        <!--align="center" nowrap><a href='<(if-not (get-in user [:is_admin]) "/records" "/data/records")>'>联系记录</a>-->
+                    <!--</td>-->
+
+
+<div class="clearfix">
+    <div class="menu left">
+        <ul>
+            <li class='<(if-not (get-in user [:is_admin]) "none" "current")>'>
+                <a href="/"><img src='<(if (= "/" (:uri request)) "/img/home.png" "/img/home-gray.png")>'  /></a>
+            </li>
+
+            <li class='<(if (or (= "/sources" (:uri request)) (= "/data/edit/sources" (:uri request))) "current" "not-current")>'>
+                <a href="/sources"><img src='<(if (or (= "/sources" (:uri request)) (= "/data/edit/sources" (:uri request))) "/img/source.png" "/img/source-gray.png")>'  /></a>
+            </li>
+
+
+            <li class='<(if (or (= "/sources" (:uri request)) (= "/data/edit/sources" (:uri request))) "current" "not-current")>'>
+                <a href="/sources"><img src='<(if (or (= "/sources" (:uri request)) (= "/data/edit/sources" (:uri request))) "/img/source.png" "/img/source-gray.png")>'  /></a>
+            </li>
+
+            <li class='<(if (or (= "/sources" (:uri request)) (= "/data/edit/sources" (:uri request))) "current" "not-current")>'>
+                <a href="/sources"><img src='<(if (or (= "/sources" (:uri request)) (= "/data/edit/sources" (:uri request))) "/img/source.png" "/img/source-gray.png")>'  /></a>
+            </li>
+
+            <li class='<(if (or (= "/sources" (:uri request)) (= "/data/edit/sources" (:uri request))) "current" "not-current")>'>
+                <a href="/sources"><img src='<(if (or (= "/sources" (:uri request)) (= "/data/edit/sources" (:uri request))) "/img/source.png" "/img/source-gray.png")>'  /></a>
+            </li>
+
+            <li class='not-current custom-tips' style="border-bottom: none">
+               <div class="text-center">咨询热线</div>
+                <div class="red">13161984009</div>
+            </li>
+        </ul>
+    </div>
+    <div class="left content ">
+        {%block content%}
+        {%endblock%}
+    </div>
+</div>
+
+
+
+
+{% include "layout/foot.html" %}
+</body>
+</html>
+<script type="text/javascript" src="/js/base.bundle.js"></script>
+
+{%block script%}
+{%endblock%}
