@@ -29,10 +29,23 @@
 
         </div>
     </div>
-    <table class="ui-table"><!-- 可以在class中加入ui-table-inbox或ui-table-noborder分别适应不同的情况 -->
+    <div class="content-wrap">
+        <div class="pure-menu pure-menu-horizontal">
+            <ul class="pure-menu-list">
+                <li class="pure-menu-item"><a href="#" class="pure-menu-link">意向中</a></li>
+                <li class="pure-menu-item">|</li>
+                <li class="pure-menu-item"><a href="#" class="pure-menu-link">无意向</a></li>
+                <li class="pure-menu-item">|</li>
+                <li class="pure-menu-item"><a href="#" class="pure-menu-link">意向中一般</a></li>
+                <li class="pure-menu-item">|</li>
+                <li class="pure-menu-item"><a href="#" class="pure-menu-link">意向一般</a></li>
+            </ul>
+        </div>
+        <div class="bg-white round">
+    <table class="pure-table pure-table-horizontal"><!-- 可以在class中加入ui-table-inbox或ui-table-noborder分别适应不同的情况 -->
         <thead>
         <tr>
-            <th>id</th>
+            <th>ID</th>
             <th>学员姓名</th>
             <th>家长姓名</th>
             <th>电话</th>
@@ -84,10 +97,10 @@
             </td>
 
             <td>
-                <a href='/data/edit/sources?id=<(:key p)>'  >修改</a>
+                <a href='/data/edit/sources?id=<(:key p)>' title="修改" alt="修改"  ><img src="/img/edit-action.png"></a>
 
-                <a class="" href='/records/<(p "name")>/<(:key p)>'  class='loan'>联系记录</a>
-                <a class="del-source" id='<(:key p)>' href='javascript:void(0)'  >标记为无效线索</a>
+                <a class="" href='/records/<(p "name")>/<(:key p)>'  class='loan'><img src="/img/contract-action.png"></a>
+                <a class="del-source" id='<(:key p)>' href='javascript:void(0)'  ><img src="/img/del-action.png"></a>
             </td>
 
         </tr>
@@ -96,8 +109,13 @@
         </tbody>
 
     </table>
+    </div>
+    </div>
+    <div class="content-wrap">
+    <(pager "/data/sources" :page (:page data) :pagesize 10 :count (:count data))>
+    </div>
 </div>
-<(pager "/data/sources" :page (:page data) :pagesize 10 :count (:count data))>
+
 
 {%endblock%}
 {%block script%}

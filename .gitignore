@@ -1,5 +1,8 @@
 /target
-resources/public/.sass-cache/
+/resources/public/stylesheets/*.css
+/resources/public/js/*.js
+/resources/public/.sass-cache/*
+/resources/public/*update.js
 /lib
 /classes
 /checkouts

@@ -1,0 +1,27 @@
+
+{
+  "db": {
+    "db-name": "zt",
+    "user": "root",
+    "host": "localhost",
+    "port": "3306",
+    "password": "wwwsunboy",
+    "subprotocol": "mysql"
+  },
+  "test": "test",
+  "redis": {"host": "127.0.0.1",
+            "port": 6379,},
+  "project-name": "zhongzubao",
+  "siteurl" : "http://localhost:3000/",
+  "mail": {"from":"noplay@ptobchina.com"},
+  "platformNo": 10040011137,
+  "callbackUrl": "http://106.2.184.190:8082",
+  "notifyUrl": "http://106.2.184.190:8082",
+    "onSubmit": "http://qa.yeepay.com/member",
+    "serviceUrl": "http://qa.yeepay.com/member/bhaexter/bhaController",
+  "url": "/Users/jfreebird/src/spring3/WebRoot",
+  "basePath": "http://localhost:8082/",
+  "yeepayCfaFile": "zhengshu.pfx",
+  "restHost": "http://192.168.1.10:3000",
+
+}

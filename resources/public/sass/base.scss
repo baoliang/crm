@@ -91,6 +91,9 @@ a {
   margin-top: 25px;
 
 }
+.content-wrap {
+  padding: 5px 50px 0 50px;
+}
 .user-info {
   margin: 15px 25px 0 0;
   span {
@@ -114,3 +117,17 @@ a {
 .bg-white {
   background-color: white;
 }
+
+.margin-top-30 {
+  margin-top: 30px;
+}
+
+.content-wrap {
+  .title {
+    margin: 10px 0  20px 130px;
+
+    color: #bf4c6e;
+    font-size: 18px;
+  }
+}
+//page

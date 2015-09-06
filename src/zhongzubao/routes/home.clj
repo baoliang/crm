@@ -292,13 +292,15 @@
 
            (POST "/login" [username password]
                  (let [success (user/login-user username password)
-                       user (first (st/list-by-where :users [:or [:= :email  username] [:= :phone  username]] ))]
+                       _user (first (st/list-by-where :users [:or [:= :email  username] [:= :phone  username]] ))
+                       user (if success (assoc _user :company_name (:name (st/get-by-colum-value :companies :uuid (:company_id _user)))))]
                    (if success
                      (if (:is_super_admin user)
                        (do
                          (session/put!  :user user)
                          (response/redirect "/admin/applies"))
                          (do
+
                            (session/put! :user user)
                            (response/redirect "/")))
                      (layout/render "login.html" {:alert "密码错误" :username  username})

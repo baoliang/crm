@@ -131,34 +131,51 @@ a {
 }
 
 /* line 94, ../sass/base.scss */
+.content-wrap {
+  padding: 5px 50px 0 50px;
+}
+
+/* line 97, ../sass/base.scss */
 .user-info {
   margin: 15px 25px 0 0;
 }
-/* line 96, ../sass/base.scss */
+/* line 99, ../sass/base.scss */
 .user-info span {
   color: white;
 }
-/* line 99, ../sass/base.scss */
+/* line 102, ../sass/base.scss */
 .user-info .quit {
   position: relative;
   padding-top: -10px;
   top: 6px;
 }
-/* line 104, ../sass/base.scss */
+/* line 107, ../sass/base.scss */
 .user-info .user-name {
   margin-left: 5px;
   color: #4c592c;
 }
 
-/* line 110, ../sass/base.scss */
+/* line 113, ../sass/base.scss */
 .custom-tips {
   margin: 20px;
   font-size: 12px;
 }
 
-/* line 114, ../sass/base.scss */
+/* line 117, ../sass/base.scss */
 .bg-white {
   background-color: white;
+}
+
+/* line 121, ../sass/base.scss */
+.margin-top-30 {
+  margin-top: 30px;
+}
+
+/* line 126, ../sass/base.scss */
+.content-wrap .title {
+  margin: 10px 0  20px 130px;
+  color: #bf4c6e;
+  font-size: 18px;
 }
 
 /* line 9, ../sass/login.scss */

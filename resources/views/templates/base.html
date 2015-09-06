@@ -29,7 +29,7 @@
     <div class="user-info right">
         <span>欢迎您</span>
         <a class="user-name" href="/security" onclick="ListBulkDownDrop(this,'headtooltabdiv');return false;">
-            <(get-in user [:name])>
+            <(get-in  user [:company_name])>
         </a>
         <a href="/quit" class="quit"> <img src="/img/arrow.png" /></a>
         <div class="search">
@@ -37,6 +37,7 @@
         </div>
     </div>
 </div>
+<(session/get! :company)>
 <!--<div class=""-->
 <!--onClick="window.location.href='/sources/edit';">-->
 <!--新增招生线索-->
