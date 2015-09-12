@@ -1,4 +1,6 @@
 /target
+/resources/public/js/*bundle.js
+/resources/public/*-update.json
 /resources/public/stylesheets/*.css
 /resources/public/js/*.js
 /resources/public/.sass-cache/*

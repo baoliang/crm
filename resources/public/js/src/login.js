@@ -1,7 +1,7 @@
 require('../../bower_components/jquery-1.9.1/index.js');
 require('../../bower_components/jquery-modal/jquery.modal.js');
 document.loginform.username.focus();
-$('.login-action').click(function(){
+function login_action(){
     if (document.loginform.username.value == '') {
         alert('用户名不能为空');
         document.loginform.username.focus();
@@ -14,8 +14,15 @@ $('.login-action').click(function(){
     }
 
     document.loginform.submit();
+}
+$('.login-action').click(function(){
+    login_action();
 });
-
+$(document).keypress(function(e) {
+    if(e.which == 13) {
+        login_action();
+    }
+});
 $('.reg-form-action').click(function(){
     if ($('#name').val() == '') {
         alert('学校名称不能为空');
