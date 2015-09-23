@@ -65,14 +65,24 @@ a {
   color: red;
 }
 
-/* line 46, ../sass/base.scss */
+/* line 45, ../sass/base.scss */
+.white {
+  color: white;
+}
+
+/* line 49, ../sass/base.scss */
+.current-red {
+  color: #c72153;
+}
+
+/* line 52, ../sass/base.scss */
 .button-success {
   background: #7e9e2b;
   /* this is a green */
   color: white;
 }
 
-/* line 51, ../sass/base.scss */
+/* line 57, ../sass/base.scss */
 .clearfix:after {
   content: " ";
   display: block;
@@ -80,94 +90,94 @@ a {
   height: 0;
 }
 
-/* line 57, ../sass/base.scss */
+/* line 63, ../sass/base.scss */
 .none {
   display: none;
 }
 
-/* line 60, ../sass/base.scss */
+/* line 66, ../sass/base.scss */
 .content {
   background-color: #cccccc;
   width: 89.99%;
 }
 
-/* line 64, ../sass/base.scss */
+/* line 70, ../sass/base.scss */
 .menu {
   width: 10%;
   background-color: #f4f9e0;
 }
-/* line 67, ../sass/base.scss */
+/* line 73, ../sass/base.scss */
 .menu ul {
   padding: 0;
   margin: 0;
 }
-/* line 70, ../sass/base.scss */
+/* line 76, ../sass/base.scss */
 .menu ul .current {
   background-color: #d31a57;
 }
-/* line 74, ../sass/base.scss */
+/* line 80, ../sass/base.scss */
 .menu ul .not-current img {
   margin: 30px 0 10px 0;
 }
-/* line 78, ../sass/base.scss */
+/* line 84, ../sass/base.scss */
 .menu ul li {
   border-bottom: solid 1px #e5e3ce;
   text-align: center;
   list-style-type: none;
 }
 
-/* line 85, ../sass/base.scss */
+/* line 91, ../sass/base.scss */
 .logo-wrap {
   margin: 40px 0 0 25px;
 }
 
-/* line 89, ../sass/base.scss */
+/* line 95, ../sass/base.scss */
 .logo {
   margin-top: 25px;
 }
 
-/* line 94, ../sass/base.scss */
+/* line 100, ../sass/base.scss */
 .content-wrap {
   padding: 5px 50px 0 50px;
 }
 
-/* line 97, ../sass/base.scss */
+/* line 103, ../sass/base.scss */
 .user-info {
   margin: 15px 25px 0 0;
 }
-/* line 99, ../sass/base.scss */
+/* line 105, ../sass/base.scss */
 .user-info span {
   color: white;
 }
-/* line 102, ../sass/base.scss */
+/* line 108, ../sass/base.scss */
 .user-info .quit {
   position: relative;
   padding-top: -10px;
   top: 6px;
 }
-/* line 107, ../sass/base.scss */
+/* line 113, ../sass/base.scss */
 .user-info .user-name {
   margin-left: 5px;
   color: #4c592c;
 }
 
-/* line 113, ../sass/base.scss */
+/* line 119, ../sass/base.scss */
 .custom-tips {
   margin: 20px;
   font-size: 12px;
 }
 
-/* line 117, ../sass/base.scss */
+/* line 123, ../sass/base.scss */
 .bg-white {
   background-color: white;
 }
 
-/* line 121, ../sass/base.scss */
+/* line 127, ../sass/base.scss */
 .margin-top-30 {
   margin-top: 30px;
 }
 
-/* line 126, ../sass/base.scss */
+/* line 132, ../sass/base.scss */
 .content-wrap .title {
   margin: 10px 0  20px 130px;
   color: #bf4c6e;
