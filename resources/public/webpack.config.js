@@ -2,8 +2,9 @@ module.exports = {
     // configuration
     entry: {
         login: "./js/src/login",
-        chart_menu: "./js/src/chart_menu.js",
-        base: "./js/src/base"
+        chart_menu: "./js/src/chart_menu",
+        base: "./js/src/base",
+        source: "./js/src/source"
     },
     output: {
         // Make sure to use [name] or [id] in output.filename

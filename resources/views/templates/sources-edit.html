@@ -1,8 +1,9 @@
 {% extends "base.html" %}
 {%block content%}
+
 <div class="content-wrap ">
     <div class="bg-white round margin-top-30">
-        <form class="pure-form pure-form-aligned clearfix"  method="post" action="/sources/edit">
+        <form class="pure-form pure-form-aligned clearfix form"  method="post" action="/sources/edit">
             <input type="hidden" name="table" value="sources">
             <input type="hidden" name="key" value="<(:key data)>">
             <fieldset class="left">
@@ -13,14 +14,14 @@
                 </div>
 
                 <div class="pure-control-group">
-                    <label for="password">家长姓名</label>
+                    <label for="parent">家长姓名</label>
                     <input id="parent" type="text" placeholder="" value='<(data "parent")>' name="parent">
                 </div>
 
                 <div class='pure-control-group <(if-not (get-in user [:is_admin]) "none")>'>
-                    <label for="email">招生老师</label>
+                    <label for="sales">招生老师</label>
                     <(if  (get-in user [:is_admin])  ">
-                    <select id="province" name="sales">
+                    <select id="sales" name="sales">
                         <option value="无">无</option>
 
 
@@ -151,13 +152,14 @@
                     <input class="" name="city" id="city" value='<(data "city")>' type="text">
                 </div>
             </fieldset>
-            <div class="pure-controls left">
+            <div class="pure-controls left clear clear-both">
 
-                <a href="javascript:void(0)">
+                <a href="javascript:void(0)" class="submit">
                     <img src="/img/confirm.png">
+
                 </a>
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <a href="javascript:void(0)">
+                <a href="/sources">
                     <img src="/img/cancel.png">
                 </a>
             </div>
@@ -170,5 +172,5 @@
 
 {%endblock%}
 {%block script%}
-
+<script src="/js/source.bundle.js"></script>
 {%endblock%}

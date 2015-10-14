@@ -54,6 +54,7 @@ require(
                        ]
                    };
                    myChart.setOption(option);
+
                }})
         $.ajax({url:"/statistics/sources/province",
             success: function(data){
@@ -89,6 +90,7 @@ require(
                     ]
                 };
                 province_bar.setOption(option);
+                $('.province_bar_content').hide();
             }})
         $.ajax({url:"/statistics/sources/city",
             success: function(data){
@@ -129,6 +131,7 @@ require(
                     ]
                 };
                 city_bar.setOption(option);
+                $('.city_bar_content').hide();
             }})
         $.ajax({url:"/statistics/sources/create-sales",
             success: function(data){
@@ -168,6 +171,7 @@ require(
                     ]
                 };
                 create_sales_bar.setOption(option);
+                $('.create_sales_bar_content').hide();
             }})
         $.ajax({url:"/statistics/sources/get-sales",
             success: function(data){
@@ -207,8 +211,24 @@ require(
                     ]
                 };
                 get_sales_bar.setOption(option);
+                $('.get_sales_bar_content').hide();
             }})
 
 
     }
 );
+var chart_ids = ['main', 'province_bar', 'city_bar', 'create_sales_bar', 'get_sales_bar'];
+$.each(chart_ids, function(index, value){
+
+    $('.'+value).on('click',function(){
+        $('.'+value+'_content').show();
+        $('.'+value).addClass('current-red');
+        $.each(chart_ids, function(index, name){
+            if(value != name){
+                $('.'+name).removeClass('current-red')
+                $('.'+name+'_content').hide()
+            }
+
+        });
+    });
+});

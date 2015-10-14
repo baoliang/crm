@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 {%block content%}
 
+
 <div class="ui-table-container">
     <div class='ui-tipbox ui-tipbox-success <(if-not (:edit data) "none")>'>
         <div class="ui-tipbox-icon">
@@ -32,17 +33,18 @@
     <div class="content-wrap">
         <div class="pure-menu pure-menu-horizontal">
             <ul class="pure-menu-list">
-                <li class="pure-menu-item"><a href="#" class="pure-menu-link">意向中</a></li>
+                <li class="pure-menu-item"><a href='/sources?status=意向中'  class='pure-menu-link search <(if (= "意向中" (:status data)) "current-red")>'>意向中</a></li>
                 <li class="pure-menu-item">|</li>
-                <li class="pure-menu-item"><a href="#" class="pure-menu-link">无意向</a></li>
+                <li class="pure-menu-item"><a href='/sources?status=无意向' class='pure-menu-link search  <(if (= "无意向" (:status data)) "current-red")>'>无意向</a></li>
                 <li class="pure-menu-item">|</li>
-                <li class="pure-menu-item"><a href="#" class="pure-menu-link">意向中一般</a></li>
+                <li class="pure-menu-item"><a href='/sources?status=意向中一般' class='pure-menu-link search  <(if (= "意向中一般" (:status data)) "current-red")>'>意向中一般</a></li>
                 <li class="pure-menu-item">|</li>
-                <li class="pure-menu-item"><a href="#" class="pure-menu-link">意向一般</a></li>
+                <li class="pure-menu-item"><a href='/sources?status=意向一般' class='pure-menu-link search  <(if (= "意向一般" (:status data)) "current-red")>'>意向一般</a></li>
             </ul>
         </div>
         <div class="bg-white round">
-    <table class="pure-table pure-table-horizontal"><!-- 可以在class中加入ui-table-inbox或ui-table-noborder分别适应不同的情况 -->
+            <a href="javascript:void(0)" class="add right" onClick="window.location.href='/sources/edit';"><img src="/img/add_icon.png"></a>
+    <table class="pure-table pure-table-horizontal clear-both w-100">
         <thead>
         <tr>
             <th>ID</th>
@@ -52,9 +54,7 @@
             <th>QQ</th>
             <th>微信</th>
             <th>线索来源</th>
-
             <th>意向状态</th>
-
             <th>省份</th>
             <th>城市</th>
             <th>招生老师</th>
@@ -119,5 +119,5 @@
 
 {%endblock%}
 {%block script%}
-<script src="/js/source.js"></script>
+<script src="/js/source.bundle.js"></script>
 {%endblock%}

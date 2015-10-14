@@ -106,14 +106,19 @@
                                                                   (utils/to-pg-json {:source-id source-id})])
                                              {:source source :source-id source-id})))
 
-           (GET "/sources" [page keywords]
+           (GET "/sources" [page keywords status]
              (layout/render "sources.html"  (merge (data/get-data-page "sources"
                                                                        (if page (Integer/parseInt page) 1)
                                                                        (:company_id (session/get :user))
                                                                        keywords
-                                                                       [(keyword "@>")
-                                                                        :data
-                                                                        (utils/to-pg-json {:sales (:name (session/get :user))})]))))
+                                                                       [:or
+                                                                        [(keyword "@>")
+                                                                         :data
+                                                                         (utils/to-pg-json {:sales (:name (session/get :user))})]
+                                                                        (if status [(keyword "@>")
+                                                                                    :data
+                                                                                    (utils/to-pg-json {:status status})])]
+                                                                        ) {:status status})))
 
 
            (GET "/sources-pool" [page keywords]
@@ -219,7 +224,7 @@
                    (response/redirect (format "/records/%s/%s" (:source params) (:source-id params)))))
 
 
-           (GET "/xxx/xxx" [] "1111111zzzz")
+
            (GET "/data/del/:table" [table id]
                 (st/kv-del table id)
                 (layout/render (str table ".html") (assoc (data/get-data-page table  1 (:company_id (session/get :user)) keyword) :del true)))
@@ -278,7 +283,8 @@
                                                (if id
                                                   (do
                                                      (st/update-by-id database :companies (Integer/parseInt id)  {:name name :phone phone :email email :is_paid _is_paid})
-                                                     (st/update-table database :users   [:= :company_id UUID] {:name name :phone phone :password (utils/en-password password) :email email })
+                                                     (st/update-table database :users   [:= :company_id UUID] {:name name :phone phone  :email email })
+                                                     (st/update-table database :users [:and [:= :company_id UUID] [:= :is_admin true]] {:password (utils/en-password password)})
                                                      (response/redirect "/admin/companies"))
                                                  (if (or phone-is-exit email-is-exit)
                                                    (layout/render "admin/edit-company.html" {:name name :phone phone :email email :is_paid _is_paid :password password :phone-is-exit (if phone-is-exit "电话已存在") :email-is-exit (if email-is-exit "邮箱已存在")})

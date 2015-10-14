@@ -1,10 +1,12 @@
 {% extends "base.html" %}
 {%block content%}
-<a  href='/data/edit/records?source=<(:source data)>&source-id=<(:source-id data)>' class='<(if-not (:source-id data) "none")> ui-button ui-button-lorange'>添加记录</a>
-<br/>
-<div class="ui-table-container">
 
-    <table class="ui-table"><!-- 可以在class中加入ui-table-inbox或ui-table-noborder分别适应不同的情况 -->
+<div class="content-wrap">
+<div class="ui-table-container">
+    <div class="bg-white round">
+
+
+    <table class="pure-table pure-table-horizontal clear-both w-100"><!-- 可以在class中加入ui-table-inbox或ui-table-noborder分别适应不同的情况 -->
         <thead>
         <tr>
             <th>id</th>
@@ -44,10 +46,11 @@
         </tbody>
 
     </table>
+    </div>
 </div>
-<(pager "/data/records" :page (:page data) :pagesize 20 :count (:count data))>
-
-{%endblock%}
-{%block script%}
+    <div class="content-wrap">
+        <(pager "/data/records" :page (:page data) :pagesize 10 :count (:count data))>
+    </div>
+</div>
 
 {%endblock%}

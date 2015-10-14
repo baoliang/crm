@@ -9,13 +9,12 @@
     <link href="/img/fav.png" mce_href="/public/images/favicon_32.ico" rel="shortcut icon" type="image/x-icon" />
 
     <link media="all" href="/stylesheets/crm.css" rel="stylesheet">
-    {%block css%}
+    {%block head%}
     {%endblock%}
-
 
 </head>
 <body>
-<div class="top-bg-height bg-black">
+<div class="top-bg-height bg-black header">
     <div class="logo-wrap left">
         <a class="logo" href="/"><img  src="/img/logo.png"></a>
     </div>
@@ -32,69 +31,43 @@
             <(get-in  user [:company_name])>
         </a>
         <a href="/quit" class="quit"> <img src="/img/arrow.png" /></a>
-        <div class="search">
+
+    </div>
+
+    <div class='search right clear-both   <(if (list-contains?  ["/" "/security"] (:uri request)) "hide")>'>
+      <img src="/img/search_icon.png" />
+      <input type="text" name="keywords" value="">
+
 
         </div>
     </div>
 </div>
 <(session/get! :company)>
-<!--<div class=""-->
-<!--onClick="window.location.href='/sources/edit';">-->
-<!--新增招生线索-->
-<!--</div>-->
-<!--<div class='list-bulk-link <(if-not (get-in user [:is_admin]) "none")>'-->
-<!--onClick="window.location.href='/users/edit';">-->
-<!--新增招生老师-->
-<!--</div>-->
-
-                    <!--&lt;!&ndash;[if IE]>-->
-                    <!--<td style="width:1px" class=small>&nbsp;</td>-->
-                    <!--<![endif]&ndash;&gt;-->
-                    <!--<td class='<(if (or (= "/sources" (:uri request)) (= "/data/edit/sources" (:uri request))) "crm-head-link-on" "crm-head-link")>'-->
-                        <!--align="center" nowrap><a href="/sources">我的线索</a>-->
-                    <!--</td>-->
-                    <!--&lt;!&ndash;[if IE]>-->
-                    <!--<td style="width:1px" class=small>&nbsp;</td>-->
-                    <!--<![endif]&ndash;&gt;-->
-                    <!--<td class='<(if (= "/sources-pool" (:uri request)) "crm-head-link-on" "crm-head-link")>  '-->
-                        <!--align="center" nowrap><a href="/sources-pool">线索池</a>-->
-                    <!--</td>-->
-                    <!--&lt;!&ndash;[if IE]>-->
-                    <!--<td style="width:1px" class=small>&nbsp;</td>-->
-                    <!--<![endif]&ndash;&gt;-->
-                    <!--<td class='<(if (.startsWith (:uri request)  "/users" ) "crm-head-link-on" "crm-head-link")> <(if-not (get-in user [:is_admin]) "none")>'-->
-                        <!--align="center" nowrap><a href="/users">招生老师</a></td>-->
-
-                    <!--&lt;!&ndash;[if IE]>-->
-                    <!--<td style="width:1px" class=small>&nbsp;</td>-->
-                    <!--<![endif]&ndash;&gt;-->
-                    <!--<td class='<(if (or  (= "/records/edit" (:uri request)) (= "/records" (:uri request)) (= "/data/records" (:uri request))) "crm-head-link-on" "crm-head-link")>  '-->
-                        <!--align="center" nowrap><a href='<(if-not (get-in user [:is_admin]) "/records" "/data/records")>'>联系记录</a>-->
-                    <!--</td>-->
-
 
 <div class="clearfix">
     <div class="menu left">
         <ul>
-            <li class='<(if-not (get-in user [:is_admin]) "none" "current")>'>
+            <li class='<(if-not (get-in user [:is_admin]) "none " "current")> <(if  (= "/" (:uri request)) "current" "not-current")> '>
                 <a href="/"><img src='<(if (= "/" (:uri request)) "/img/home.png" "/img/home-gray.png")>'  /></a>
             </li>
 
-            <li class='<(if (or (= "/sources" (:uri request)) (= "/data/edit/sources" (:uri request))) "current" "not-current")>'>
-                <a href="/sources"><img src='<(if (or (= "/sources" (:uri request)) (= "/data/edit/sources" (:uri request))) "/img/source.png" "/img/source-gray.png")>'  /></a>
+            <li class='<(if (or (= "/sources" (:uri request)) (= "/sources/edit" (:uri request))) "current" "not-current")>'>
+                <a href="/sources"><img src='<(if (or (= "/sources" (:uri request)) (= "/sources/edit" (:uri request))) "/img/source.png" "/img/source-gray.png")>'  /></a>
             </li>
 
 
-            <li class='<(if (or (= "/sources" (:uri request)) (= "/data/edit/sources" (:uri request))) "current" "not-current")>'>
-                <a href="/sources"><img src='<(if (or (= "/sources" (:uri request)) (= "/data/edit/sources" (:uri request))) "/img/source.png" "/img/source-gray.png")>'  /></a>
+            <li class='<(if (or (= "/sources-pool" (:uri request)) ) "current" "not-current")>'>
+                <a href="/sources-pool"><img src='<(if (or (= "/sources-pool" (:uri request))) "/img/source-pool.png" "/img/source-pool-gray.png")>'  /></a>
             </li>
 
-            <li class='<(if (or (= "/sources" (:uri request)) (= "/data/edit/sources" (:uri request))) "current" "not-current")>'>
-                <a href="/sources"><img src='<(if (or (= "/sources" (:uri request)) (= "/data/edit/sources" (:uri request))) "/img/source.png" "/img/source-gray.png")>'  /></a>
+            <li class='<(if (.startsWith (:uri request)  "/users" )  "current" "not-current")> <(if-not (get-in user [:is_admin]) "hide")>'>
+                <a href="/users"><img src='<(if (.startsWith (:uri request)  "/users" ) "/img/teacher.png" "/img/teacher-gray.png")>'  /></a>
             </li>
 
-            <li class='<(if (or (= "/sources" (:uri request)) (= "/data/edit/sources" (:uri request))) "current" "not-current")>'>
-                <a href="/sources"><img src='<(if (or (= "/sources" (:uri request)) (= "/data/edit/sources" (:uri request))) "/img/source.png" "/img/source-gray.png")>'  /></a>
+            <li class='<(if (or  (= "/records/edit" (:uri request)) (= "/records" (:uri request)) (= "/data/records" (:uri request)))  "current" "not-current")> '>
+                <a href='<(if-not (get-in user [:is_admin]) "/records" "/data/records")>'>
+                <img src='<(if (or (= "/records/edit" (:uri request)) (= "/records" (:uri request)) (= "/data/records" (:uri request)))  "/img/contact.png" "/img/contact-gray.png")>'>
+                </a>
             </li>
 
             <li class='not-current custom-tips' style="border-bottom: none">
@@ -104,6 +77,9 @@
         </ul>
     </div>
     <div class="left content ">
+        <div id="alert" class="hide">
+            <a class="alert" href="#alert">This is a slide down alert!</a>
+        </div>
         {%block content%}
         {%endblock%}
     </div>
@@ -115,7 +91,8 @@
 {% include "layout/foot.html" %}
 </body>
 </html>
-<script type="text/javascript" src="/js/base.bundle.js"></script>
 
+
+<script type="text/javascript" src="/js/base.bundle.js"></script>
 {%block script%}
 {%endblock%}

@@ -1,7 +1,11 @@
 {% extends "base.html" %}
 {%block content%}
+<div class="content-wrap">
+    <div class="ui-table-container">
+        <div class="bg-white round">
+<a href="javascript:void(0)" class="add right" onClick="window.location.href='/users/edit';"><img
+        src="/img/add_icon.png"></a>
 
-<div class="ui-table-container">
     <div class='ui-tipbox ui-tipbox-success <(if-not (:edit data) "none")>'>
         <div class="ui-tipbox-icon">
             <i class="iconfont" title="成功">&#xF049;</i>
@@ -38,7 +42,7 @@
 
         </div>
     </div>
-    <table class="ui-table"><!-- 可以在class中加入ui-table-inbox或ui-table-noborder分别适应不同的情况 -->
+    <table class="pure-table pure-table-horizontal clear-both w-100"><!-- 可以在class中加入ui-table-inbox或ui-table-noborder分别适应不同的情况 -->
         <thead>
         <tr>
             <th>id</th>
@@ -77,9 +81,9 @@
 
     </table>
 </div>
-<(pager "/users" :page (:page data) :pagesize 10 :count (:count data))>
-
-{%endblock%}
-{%block script%}
-
+        </div>
+        <div class="content-wrap">
+            <(pager "/users" :page (:page data) :pagesize 10 :count (:count data))>
+        </div>
+    </div>
 {%endblock%}

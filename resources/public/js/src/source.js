@@ -5,3 +5,10 @@ $(".del-source").click(function(){
        $("#"+id).parent().parent().remove();
     }})
 });
+$('.submit').click(function(){
+    if ($('#name').val() == ''){
+        bao.alert_show('请输入学生姓名!')
+        return
+    }
+    $('.form').submit()
+});
