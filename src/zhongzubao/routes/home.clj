@@ -247,10 +247,22 @@
                 (layout/render  "user-edit.html"  (if id (st/get-by-id :users (Integer/parseInt id)) {})))
 
            (POST "/users/edit" {params :params}
-                 (if-not (empty? (:id params))
-                   (st/update-by-id :users (Integer/parseInt (:id params)) (dissoc params :id :password))
-                   (st/insert :users  (assoc (dissoc params :id) :password (utils/en-password (:password params)) :company_id (:company_id (session/get :user)))))
-                 (layout/render "users.html" (merge {(if-not (empty? (:id params)) :edit :new) true} (st/get-data-by-page :users  1 1000 [:and [:= :del false]  [:= :company_id (:company_id (session/get :user))]]))))
+             (let [phone (st/list-by-colum-value :users :phone  (:phone params))
+                   email (st/list-by-colum-value :users :email  (:email params))]
+               (cond
+                 (and (not-empty phone) (empty? (:id params))) (layout/render "user-edit.html" {:error "电话号码已经存在" :params params :id (:id params)})
+                 (and (not-empty email) (empty? (:id params))) (layout/render "user-edit.html" {:error "邮箱已经存在" :params params :id (:id params)})
+                 (or (not-empty (:id params)))
+                  (do
+                    (st/update-by-id :users (Integer/parseInt (:id params)) (dissoc params :id :password))
+                    (layout/render "users.html"
+                                   (merge {(if-not (empty? (:id params)) :edit :new) true}
+                                          (st/get-data-by-page :users  1 1000 [:and [:= :del false]  [:= :company_id (:company_id (session/get :user))]]))))
+                 :else (do
+                         (st/insert :users  (assoc (dissoc params :id) :password (utils/en-password (:password params)) :company_id (:company_id (session/get :user))))
+                         (layout/render "users.html"
+                                        (merge {(if-not (empty? (:id params)) :edit :new) true}
+                                               (st/get-data-by-page :users  1 1000 [:and [:= :del false]  [:= :company_id (:company_id (session/get :user))]])))))))
 
            (GET "/users/del/:id" [id]
                 (st/update-by-id :users (Integer/parseInt id) {:del true})

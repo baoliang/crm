@@ -17,6 +17,7 @@
                            [venantius/ultra "0.1.9"]
                            [baotask "0.1.4-SNAPSHOT"]
                            [org.clojure/data.json "0.2.4"]
+                           [org.clojure/core.logic "0.8.10"]
                            [overtone/at-at "1.2.0"]
                            [org.clojure/data.xml "0.0.8"]
                            [org.clojure/test.check "0.6.1"]

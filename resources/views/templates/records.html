@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 {%block content%}
-
+<a  href='/data/edit/records?source=<(:source data)>&source-id=<(:source-id data)>' class='<(if-not (:source-id data) "none")> ui-button ui-button-lorange'>添加记录</a>
+<br/>
 <div class="content-wrap">
 <div class="ui-table-container">
     <div class="bg-white round">

@@ -4,7 +4,9 @@ module.exports = {
         login: "./js/src/login",
         chart_menu: "./js/src/chart_menu",
         base: "./js/src/base",
-        source: "./js/src/source"
+        source: "./js/src/source",
+        user: "./js/src/user",
+        source_pool: "./js/src/sources_pool"
     },
     output: {
         // Make sure to use [name] or [id] in output.filename

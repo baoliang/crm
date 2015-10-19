@@ -7,35 +7,35 @@
 
 
         <div class="title">
-            <(if (:id data) "修改" "添加" )>招生老师
+            <(if (and (:id data) (not= "" (:id data))) "修改" "添加" )>招生老师
 
-            <input type="hidden" name="id" value="<(:id data)>">
+            <input type="hidden" name="id" value='<(:id data)><(get-in data [:params  :id])>'>
         </div>
 
         <div class="pure-control-group">
-            <label for="" class="ui-label">
+            <label for="name" class="ui-label">
                 <span class="ui-form-required">*</span>姓名
             </label>
-            <input class="ui-input" name="name" value='<(:name data )>' type="text">
+            <input class="ui-input" id="name" name="name" value='<(:name data )><(get-in data [:params  :name])>' type="text">
 
         </div>
 
 
         <div class="pure-control-group ">
-            <label for="" class="ui-label"> <span class="ui-form-required">*</span>电话</label>
-            <input class="ui-input ui-input-large" name="phone"  value='<(:phone data)>' type="text">
+            <label for="phone" class="ui-label"> <span class="ui-form-required">*</span>电话</label>
+            <input class="ui-input ui-input-large" id="phone" name="phone"  value='<(:phone data)><(get-in data [:params  :phone])>' type="text">
 
         </div>
 
         <div class="pure-control-group ">
-            <label for="" class="ui-label"> <span class="ui-form-required">*</span>邮箱</label>
-            <input class="ui-input ui-input-large" name="email"   value='<(:email data )>' type="text">
+            <label for="email" class="ui-label"> <span class="ui-form-required">*</span>邮箱</label>
+            <input class="ui-input ui-input-large" id="email" name="email"   value='<(:email data )><(get-in data [:params  :email])>' type="text">
 
         </div>
-        <(if-not (:id data) ">
+        <(if-not (and (:id data) (not= "" (:id data)))">
         <div class="pure-control-group ">
-            <label for="" class="ui-label"> <span class="ui-form-required">*</span>密码</label>
-            <input class="ui-input ui-input-large" name="password" type="password"   value='' type="text">
+            <label for="password" class="ui-label"> <span class="ui-form-required">*</span>密码</label>
+            <input class="ui-input ui-input-large" id="password" name="password" type="password"   value='<(get-in data [:params  :password])>' type="text">
 
         </div>
         <")>
@@ -62,5 +62,5 @@
 </div>
 {%endblock%}
 {%block script%}
-
+<script src="/js/user.bundle.js"></script>
 {%endblock%}

@@ -4,12 +4,7 @@
 {%endblock%}
 {%block content%}
 
-
-<div class='ui-tipbox ui-tipbox-success <(if-not (get-in user [:is_admin]) "none")>'>
-
-
-</div>
-<br>
+<br/>
 <div class="ui-table-container">
     <div class='ui-tipbox ui-tipbox-success <(if-not (:edit data) "none")>'>
         <div class="ui-tipbox-icon">
@@ -128,6 +123,6 @@
 
 {%endblock%}
 {%block script%}
-<script src="/js/sources-pool.js"></script>
-<script src="/js/source.js"></script>
+<script src="/js/source_pool.bundle.js"></script>
+<script src="/js/sources.bundle.js"></script>
 {%endblock%}

@@ -51,8 +51,8 @@
                 <a href="/"><img src='<(if (= "/" (:uri request)) "/img/home.png" "/img/home-gray.png")>'  /></a>
             </li>
 
-            <li class='<(if (or (= "/sources" (:uri request)) (= "/sources/edit" (:uri request))) "current" "not-current")>'>
-                <a href="/sources"><img src='<(if (or (= "/sources" (:uri request)) (= "/sources/edit" (:uri request))) "/img/source.png" "/img/source-gray.png")>'  /></a>
+            <li class='<(if (or (= "/sources" (:uri request)) (= "/data/edit/sources" (:uri request)) (= "/sources/edit" (:uri request))) "current" "not-current")>'>
+                <a href="/sources"><img src='<(if (or (= "/data/edit/sources" (:uri request)) (= "/sources" (:uri request)) (= "/sources/edit" (:uri request))) "/img/source.png" "/img/source-gray.png")>'  /></a>
             </li>
 
 
@@ -64,9 +64,9 @@
                 <a href="/users"><img src='<(if (.startsWith (:uri request)  "/users" ) "/img/teacher.png" "/img/teacher-gray.png")>'  /></a>
             </li>
 
-            <li class='<(if (or  (= "/records/edit" (:uri request)) (= "/records" (:uri request)) (= "/data/records" (:uri request)))  "current" "not-current")> '>
+            <li class='<(if (or  (.startsWith (:uri request)  "/records") (= "/records" (:uri request)) (= "/data/records" (:uri request)))  "current" "not-current")> '>
                 <a href='<(if-not (get-in user [:is_admin]) "/records" "/data/records")>'>
-                <img src='<(if (or (= "/records/edit" (:uri request)) (= "/records" (:uri request)) (= "/data/records" (:uri request)))  "/img/contact.png" "/img/contact-gray.png")>'>
+                <img src='<(if (or (.startsWith (:uri request)  "/records") (= "/records/edit" (:uri request)) (= "/records" (:uri request)) (= "/data/records" (:uri request)))  "/img/contact.png" "/img/contact-gray.png")>'>
                 </a>
             </li>
 
@@ -77,8 +77,11 @@
         </ul>
     </div>
     <div class="left content ">
-        <div id="alert" class="hide">
-            <a class="alert" href="#alert">This is a slide down alert!</a>
+        <div id="alert" class='<(if (:error data)   (:error data)  "hide" )>'>
+            <a class="alert" href="#alert"><(:error data)></a>
+        </div>
+        <div id="tips" class='<(if (:tips data)  ""  "hide" )>'>
+            <a class="tips" href="#tips"><(:tips data)></a>
         </div>
         {%block content%}
         {%endblock%}
