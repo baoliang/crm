@@ -1,10 +1,11 @@
 {% extends "base.html" %}
 {%block content%}
-<a  href='/data/edit/records?source=<(:source data)>&source-id=<(:source-id data)>' class='<(if-not (:source-id data) "none")> ui-button ui-button-lorange'>添加记录</a>
-<br/>
+
 <div class="content-wrap">
 <div class="ui-table-container">
     <div class="bg-white round">
+        <a  href='/data/edit/records?source=<(:source data)>&source-id=<(:source-id data)>' class='add right <(if-not (:source-id data) "hide")> '><img
+                src="/img/add_icon.png"></a>
 
 
     <table class="pure-table pure-table-horizontal clear-both w-100"><!-- 可以在class中加入ui-table-inbox或ui-table-noborder分别适应不同的情况 -->
@@ -39,7 +40,6 @@
             <td>
                 <( p "next-linked-time")>
             </td>
-
 
         </tr>
         <")>

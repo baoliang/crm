@@ -64,9 +64,9 @@
                 <a href="/users"><img src='<(if (.startsWith (:uri request)  "/users" ) "/img/teacher.png" "/img/teacher-gray.png")>'  /></a>
             </li>
 
-            <li class='<(if (or  (.startsWith (:uri request)  "/records") (= "/records" (:uri request)) (= "/data/records" (:uri request)))  "current" "not-current")> '>
-                <a href='<(if-not (get-in user [:is_admin]) "/records" "/data/records")>'>
-                <img src='<(if (or (.startsWith (:uri request)  "/records") (= "/records/edit" (:uri request)) (= "/records" (:uri request)) (= "/data/records" (:uri request)))  "/img/contact.png" "/img/contact-gray.png")>'>
+            <li class='<(if (or  (.startsWith (:uri request)  "/records") (= "/data/edit/records" (:uri request)) (= "/all-records" (:uri request)))  "current" "not-current")> '>
+                <a href='<(if-not (get-in user [:is_admin]) "/records" "/all-records")>'>
+                <img src='<(if (or (.startsWith (:uri request)  "/records") (= "/data/edit/records" (:uri request)) (= "/records" (:uri request)) (= "/all-records" (:uri request)))  "/img/contact.png" "/img/contact-gray.png")>'>
                 </a>
             </li>
 

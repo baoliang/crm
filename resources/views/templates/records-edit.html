@@ -1,15 +1,20 @@
 {% extends "base.html" %}
 {%block css%}
-
+<link media="all" href="/stylesheets/lazy_date.css" rel="stylesheet">
 {%endblock%}
 {%block content%}
-
-<form class="ui-form" method="post" action="/records/edit">
+<div class="content-wrap">
+    <div class="bg-white round margin-top-30">
+<form class="pure-form pure-form-aligned clearfix form" method="post" action="/records/edit">
     <fieldset>
-        <legend>添加线索</legend>
 
-        <div class="ui-form-item ui-form-item-error">
-            <label for="" class="ui-label"><(if (:key data) "修改" "添加" )>联系记录</label>
+        <div class="title">
+            添加联系记录
+
+        </div>
+
+        <div class="pure-control-group">
+
             <input type="hidden" name="table" value="records">
             <input type="hidden" name="key" value="<(:key data)>">
             <input type="hidden" name="source" value='<(data "source" )>'>
@@ -17,29 +22,29 @@
             <input type="hidden" name="source-id" value='<(data "source-id")>'>
         </div>
 
-        <div class="ui-form-item">
+        <div class="pure-control-group">
             <label for="" class="ui-label">
                 <span class="ui-form-required">*</span>主题
             </label>
             <input class="ui-input" name="topic" value='<(data "name")>' type="text">
 
         </div>
-        <div class="ui-form-item">
+        <div class="pure-control-group">
             <label for="" class="ui-label">
                 <span class="ui-form-required">*</span>联系时间
             </label>
-            <input class="ui-input" id="linked-time" name="linked-time" value='<(data "linked-time")>' type="text">
+            <input class="laydate-icon" id="linked-time" name="linked-time" value='<(data "linked-time")>' type="text">
 
         </div>
 
-        <div class="ui-form-item">
+        <div class="pure-control-group">
             <label for="" class="ui-label">
                 <span class="ui-form-required">*</span>下次联系时间
             </label>
-            <input class="ui-input" id="next-linked-time" name="next-linked-time" value='<(data "linked-time")>' type="text">
+            <input class="laydate-icon" id="next-linked-time" name="next-linked-time" value='<(data "linked-time")>' type="text">
 
         </div>
-        <div class="ui-form-item ">
+        <div class="pure-control-group ">
             <label for="" class="ui-label">意向状态</label>
             <select id="status" name="status">
 
@@ -93,7 +98,7 @@
 
         </div>
 
-        <div class="ui-form-item">
+        <div class="pure-control-group">
             <label for="" class="ui-label">联系方式/结果</label>
             <select id="province" name="result">
 
@@ -123,9 +128,16 @@
         </div>
 
 
-        <div class="ui-form-item">
-            <input type="submit" class="ui-button ui-button-morange" value="确定">
-            <input type="button" class="ui-button ui-button-mwhite" value="取消" onclick="history.back()">
+
+        <div class="pure-controls left clear clear-both">
+            <a href="javascript:void(0)" class="submit">
+                <img src="/img/confirm.png">
+
+            </a>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <a href="javascript:void(0)" onclick="history.back()">
+                <img src="/img/cancel.png">
+            </a>
         </div>
     </fieldset>
 </form>
@@ -133,8 +145,8 @@
 {%endblock%}
 {%block script%}
 
-<script type="text/javascript" src="/laydate/laydate.dev.js"></script>
-<script type="text/javascript" src="/js/records.js"></script>
+<script type="text/javascript" src="/js/lazy_date.js"></script>
+<script type="text/javascript" src="/js/records.bundle.js"></script>
 
 
 {%endblock%}
