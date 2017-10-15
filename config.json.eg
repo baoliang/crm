@@ -1,12 +1,12 @@
 
 {
   "db": {
-    "db-name": "zt",
-    "user": "root",
-    "host": "localhost",
-    "port": "3306",
-    "password": "wwwsunboy",
-    "subprotocol": "mysql"
+    "db-name": "hair_development",
+    "user": "postgres",
+    "host": "127.0.0.1",
+    "port": "5432",
+    "password": "123456",
+    "subprotocol": "postgresql"
   },
   "test": "test",
   "redis": {"host": "127.0.0.1",

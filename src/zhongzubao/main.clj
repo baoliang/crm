@@ -18,3 +18,5 @@
        vec))
 
 (defn -main[& args])
+;(require '[zhongzubao.core :as core])
+;(core/-main 4000)
