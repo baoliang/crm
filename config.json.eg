@@ -10,7 +10,7 @@
   },
   "test": "test",
   "redis": {"host": "127.0.0.1",
-            "port": 6379,},
+            "port": 11205,},
   "project-name": "zhongzubao",
   "siteurl" : "http://localhost:3000/",
   "mail": {"from":"noplay@ptobchina.com"},

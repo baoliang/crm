@@ -38,6 +38,8 @@
 
 (defroutes home-routes
            (GET "/" []
+             (layout/render "research.html"))
+           (GET "/old-index" []
                 (let [user (session/get :user)]
                   (if user
                     (if (:is_super_admin user)
