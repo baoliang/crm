@@ -3,99 +3,35 @@
 <head>
     <title></title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <link href="/img/fav.png" mce_href="/public/images/favicon_32.ico" rel="bookmark" type="image/x-icon" />
     <link href="/img/fav.png" mce_href="/public/images/favicon_32.ico" rel="icon" type="image/x-icon" />
     <link href="/img/fav.png" mce_href="/public/images/favicon_32.ico" rel="shortcut icon" type="image/x-icon" />
 
-    <link media="all" href="/stylesheets/crm.css" rel="stylesheet">
     {%block head%}
     {%endblock%}
 
 </head>
 <body>
-<div class="top-bg-height bg-black header">
-    <div class="logo-wrap left">
-        <a class="logo" href="/"><img  src="/img/logo.png"></a>
-    </div>
 
-    <div id="ws-tips" class="ui-tiptext-container ui-tiptext-container-question none">
-        <p class="ui-tiptext ui-tiptext-question">
-            <i id="ws-tips-text" class="ui-tiptext-icon iconfont" title="疑问">&#xF04A;</i>
-
-        </p>
-    </div>
-    <div class="user-info right">
-        <span>欢迎您</span>
-        <a class="user-name" href="/security" onclick="ListBulkDownDrop(this,'headtooltabdiv');return false;">
-            <(get-in  user [:company_name])>
-        </a>
-        <a href="/quit" class="quit"> <img src="/img/arrow.png" /></a>
-
-    </div>
-
-    <div class='search right clear-both   <(if (list-contains?  ["/" "/security"] (:uri request)) "hide")>'>
-      <img src="/img/search_icon.png" />
-      <input type="text" name="keywords" value="">
-
-
-        </div>
-    </div>
-</div>
+{%block content%}
+{%endblock%}
 <(session/get! :company)>
 
-<div class="clearfix">
-    <div class="menu left">
-        <ul>
-            <li class='<(if-not (get-in user [:is_admin]) "none " "current")> <(if  (= "/" (:uri request)) "current" "not-current")> '>
-                <a href="/"><img src='<(if (= "/" (:uri request)) "/img/home.png" "/img/home-gray.png")>'  /></a>
-            </li>
-
-            <li class='<(if (or (= "/sources" (:uri request)) (= "/data/edit/sources" (:uri request)) (= "/sources/edit" (:uri request))) "current" "not-current")>'>
-                <a href="/sources"><img src='<(if (or (= "/data/edit/sources" (:uri request)) (= "/sources" (:uri request)) (= "/sources/edit" (:uri request))) "/img/source.png" "/img/source-gray.png")>'  /></a>
-            </li>
-
-
-            <li class='<(if (or (= "/sources-pool" (:uri request)) ) "current" "not-current")>'>
-                <a href="/sources-pool"><img src='<(if (or (= "/sources-pool" (:uri request))) "/img/source-pool.png" "/img/source-pool-gray.png")>'  /></a>
-            </li>
-
-            <li class='<(if (.startsWith (:uri request)  "/users" )  "current" "not-current")> <(if-not (get-in user [:is_admin]) "hide")>'>
-                <a href="/users"><img src='<(if (.startsWith (:uri request)  "/users" ) "/img/teacher.png" "/img/teacher-gray.png")>'  /></a>
-            </li>
-
-            <li class='<(if (or  (.startsWith (:uri request)  "/records") (= "/data/edit/records" (:uri request)) (= "/all-records" (:uri request)))  "current" "not-current")> '>
-                <a href='<(if-not (get-in user [:is_admin]) "/records" "/all-records")>'>
-                <img src='<(if (or (.startsWith (:uri request)  "/records") (= "/data/edit/records" (:uri request)) (= "/records" (:uri request)) (= "/all-records" (:uri request)))  "/img/contact.png" "/img/contact-gray.png")>'>
-                </a>
-            </li>
-
-            <li class='not-current custom-tips' style="border-bottom: none">
-               <div class="text-center">咨询热线</div>
-                <div class="red">13161984009</div>
-            </li>
-        </ul>
-    </div>
-    <div class="left content ">
-        <div id="alert" class='<(if (:error data)   (:error data)  "hide" )>'>
-            <a class="alert" href="#alert"><(:error data)></a>
-        </div>
-        <div id="tips" class='<(if (:tips data)  ""  "hide" )>'>
-            <a class="tips" href="#tips"><(:tips data)></a>
-        </div>
-        {%block content%}
-        {%endblock%}
-    </div>
-</div>
 
 
 
-
-{% include "layout/foot.html" %}
+<p class="credit">Copyright © 2017 , all rights reserved.</p>
 </body>
 </html>
-
-
-<!--<script type="text/javascript" src="/js/base.bundle.js"></script>-->
+<script type="text/javascript" src="//cdn.staticfile.org/jquery/1.12.4/jquery.min.js"></script>
+<script type="text/javascript" src="/dist/finace.js"></script>
+<script>$(document).ready(function(){
+    $('#adSearch').click(function(){
+        $('#searchInContainer').removeClass('hide');
+    })
+});
+</script>
 {%block script%}
+
 {%endblock%}

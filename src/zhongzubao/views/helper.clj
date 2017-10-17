@@ -12,3 +12,7 @@
 (defn admin-wrap
   []
   config/config)
+
+(defn list-contains?
+  [coll value]
+  (utils/list-contains? coll value))

@@ -1,0 +1,170 @@
+{% extends "base.html" %}
+{%block content%}
+
+<div id="page">
+
+    <h1>研报搜索</h1>
+
+    <form id="searchForm" method="post">
+        <fieldset>
+
+            <input id="s" type="text" />
+
+            <input type="submit" value="搜索" class="submitButton" />
+            <input type="button" value="高级搜搜" onclick="javascript:void(0)" id="adSearch" class="submitButton" />
+            <div id="searchInContainer" class="hide">
+                <div class="searchBox" style="width: 705px;position:relative;">
+
+                    <span class="tIan" style="">筛选条件：</span>
+                    <!--1 A股-->
+                    <div class="form-inline" >
+
+                            <label >公告类型</label>
+                        <select>
+                            <option selected="true">补充及更正</option>
+                            <option> 半年度报告</option>
+                            <option>澄清风险</option>
+                            <option>业绩预告</option>
+                            <option>股东大会</option>
+                            <option> 股权变动交易</option>
+                            <option> 可转换债券</option>
+                            <option>年度报告</option>
+                            <option> 配股</option>
+                            <option> 其他融资</option>
+                            <option>其它重大事项</option>
+                            <option> 权益及限制出售股份权证相关公告</option>
+                            <option>首次公开发行及上市</option>
+                            <option>三季度报告</option>
+                            <option>上市公司制度</option>
+                            <option>特别处理和退市</option>
+                            <option>投资者关系信息</option>
+                            <option>一季度报告</option>
+                            <option>增发</option>
+                            <option>中介机构报告</option>
+                            <option>债券公告</option>
+                            <option>一季度报告</option>
+
+                        </select>
+
+                            <label>板块类型 </label>
+                        <select>
+                            <option selected="true">沪市主板</option>
+                            <option>创业板</option>
+                            <option> 深市主板</option>
+                            <option>中小板</option>
+                        </select>
+                            <label>地区类型</label>
+                        <select>
+                            <option selected="true">北京</option>
+                            <option>上海</option>
+                            <option>天津</option>
+                            <option>重庆</option>
+                            <option>黑龙江</option>
+                            <option>吉林</option>
+                            <option>辽宁</option>
+                            <option>内蒙古</option>
+                            <option>河北</option>
+                            <option>山东</option>
+                            <option>山西</option>
+                            <option>河南</option>
+                            <option>湖北</option>
+                            <option>湖南</option>
+                            <option>陕西</option>
+                            <option>四川</option>
+                            <option>安徽</option>
+                            <option>江苏</option>
+                            <option>江西</option>
+                            <option>浙江</option>
+                            <option>福建</option>
+                            <option>甘肃</option>
+                            <option>贵州</option>
+                            <option>青海</option>
+                            <option>海南</option>
+                            <option>广东</option>
+                            <option>广西</option>
+                            <option>云南</option>
+                            <option>新疆</option>
+                            <option> 西藏</option>
+                            <option>宁夏</option>
+                        </select>
+
+
+                    </div>
+
+                </div>
+                <!--股票代码 日期-->
+                <div class="form-inline">
+
+
+                            <label class="cod">股票代码：</label>
+
+                                <input type="text" class="chose2 filput ui-autocomplete-input" value="" maxlength="6" id="stock_code" placeholder="请输入股票代码" style=" width:170px; margin-left:8px; height:26px; border:1px solid #d7d7d7;color: #000;" autocomplete="off"><span role="status" aria-live="polite" class="ui-helper-hidden-accessible"></span>
+
+                            <label class="day">公告日期：</label>
+
+                                <select>
+                                    <option selected="true">一个月</option>
+                                    <option>一个季度</option>
+                                    <option>半年</option>
+                                    <option>一年</option>
+                                </select>
+
+
+
+                </div>
+            </div>
+
+
+
+
+        </fieldset>
+    </form>
+
+    <div id="resultsDiv">
+        <div class="pageContainer">
+            <div class="shower" file_id="1204048787" id="tr_1204048787" for="color_1204048787">
+                <div class="topDy clearfix">
+                    <span><input type="checkbox" name="color" class="ck" id="color_1204048787" onclick="ck(1204048787);" value="1204048787"> </span>
+                    <strong style="text-align: left;">2017-10-18</strong>
+                    <em><a style="display:block; width:100px;text-align: left;color: #7096fe;"  class="curs" target="_blank">000753</a></em>
+
+                    <a name="anchor_1204048787" title="漳州发展：2017年半年度报告（更新后）" class="view" style="text-align: left;" target="_blank" notice_code="[category_bndbg_szsh]" file_id="1204048787" href="/doc_soolrr_result?module_code=a&amp;keyword=&amp;orkeyword=&amp;notkeyword=&amp;keyword_c=&amp;orkeyword_c=&amp;notkeyword_c=&amp;id=1204048787" url="null">
+                        漳州发展：2017年半年度报告（更新后）
+                    </a>
+
+                    <b onclick="" class="zaiyao_1204048787 remarks_label" style="font-weight: normal;color: #7096fe;display: inline-block;margin-left:65px;cursor: pointer;">摘要</b>
+                </div>
+                <div class="clearfix akily">
+
+                    <div class="poll">
+                        <a onclick="_czc.push(['_trackEvent', '导出', '点击', '信披-搜索结果导出按钮的点击']);" href="javascript:;" class="out" file_id="1204048787">导出</a>
+
+                            <a href="javascript:;">导出摘要</a>
+                          <a href="javascript:;">导出全文</a>
+
+                    </div>
+
+
+                    <a href="javascript:;" class="viewop" style="color:#999999;">浏览(</a>
+
+
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+
+
+
+<!-- It would be great if you leave the link back to the tutorial. Thanks! -->
+
+
+
+{%endblock%}
+{%block script%}
+
+{%endblock%}

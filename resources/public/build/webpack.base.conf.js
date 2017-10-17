@@ -13,7 +13,8 @@ function resolve (dir) {
 
 let webpackConfig = {
   entry: {
-    app: './src/main.js'
+    apps: './src/main.js',
+    finace: './src/finace.js'
   },
   output: {
     path: config.build.assetsRoot,
@@ -29,6 +30,7 @@ let webpackConfig = {
       '@': resolve('src')
     }
   },
+
   module: {
     rules: [
       {
